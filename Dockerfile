@@ -1,2 +1,3 @@
 FROM python:3
-WORKDIR
+WORKDIR /app/
+COPY ./* ./app/

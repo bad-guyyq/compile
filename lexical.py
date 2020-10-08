@@ -71,6 +71,8 @@ class Lexical:
             return 'Then'
         elif token=='ELSE':
             return 'Else'
+        elif token=='IF':
+            return 'If'
         else:
             return ''
 

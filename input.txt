@@ -1,0 +1,14 @@
+ST:= 
+	GET
+CASE CHAR OF
+BEGIN
+		END
+0: BEGIN
++ 
+* :
+( :
+) : 
+:=
+	  END
+END OF CASE
+GOTO START

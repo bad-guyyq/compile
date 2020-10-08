@@ -1,3 +1,3 @@
-FROM Python:3
+FROM python:3
 WORKDIR /app
 COPY ./* ./app/

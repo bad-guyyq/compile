@@ -60,3 +60,9 @@ GOTO START;
 
 ```
 
+```
+"Begin\nIdent(x)\nColon\nIdent(NUMBER)\nIdent(y)\nColon\nIdent(NUMBER)\nThen\nIdent(x)\nAssign\nInt(11234)\nIdent(y)\nAssign\nIdent(x)\nPlus\nInt(22)\nStar\nInt(55)\nIdent(IF)\nLParenthesis\nIdent(x)\nRParenthesis\nThen\nIdent(y)\nAssign\nInt(00)\nElse\nIdent(x)\nAssign\nInt(00)\nEnd\nEnd\n"
+
+"  Begin\n  Ident(x)\n  Colon\n  Ident(NUMBER)\n  Ident(y)\n  Colon\n  Ident(NUMBER)\n  Then\n  Ident(x)\n  Assign\n- Int(11234)\n+ Int(1234)\n  Ident(y)\n  Assign\n  Ident(x)\n  Plus\n- Int(22)\n+ Int(2)\n  Star\n- Int(55)\n- Ident(IF)\n+ Int(5)\n+ If\n  LParenthesis\n  Ident(x)\n  RParenthesis\n  Then\n  Ident(y)\n  Assign\n- Int(00)\n+ Int(0)\n  Else\n  Ident(x)\n  Assign\n- Int(00)\n+ Int(0)\n  End\n  End\n","message":null}
+```
+

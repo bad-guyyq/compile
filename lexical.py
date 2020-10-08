@@ -18,11 +18,13 @@ class Lexical:
                     print (self.Reserve(TOKEN))
                 else:
                     print ('Ident('+TOKEN+')')
-            elif char.isdigit():
+            elif char.isdigit():#数字
+                char = self.f_in.read(1)
                 while char.isdigit():
                     TOKEN+=char
                     char = self.f_in.read(1)
                 self.Ungetch()
+                TOKEN=str(int(TOKEN))
                 print ('Int('+TOKEN+')')
             elif char=='+':
                 print('Plus')

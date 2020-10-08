@@ -1,3 +1,3 @@
-Python 3.7.4
-WORKDIR /app/
-COPY ./* ./
+FROM Python:3
+WORKDIR /app
+COPY ./* ./app/

@@ -1,0 +1,28 @@
+
+r
+java:S2159W"VRemove this call to "equals"; comparisons between unrelated types always return false.(ÕõãO8ùÔ‹ÍÖ.
+X	java:S125y"<This block of commented-out lines of code should be removed.(ÂÔÁ†8×œµÍÖ.
+X	java:S125b"<This block of commented-out lines of code should be removed.(ÂÔÁ†8¾Ò­ÍÖ.
+X	java:S125V"<This block of commented-out lines of code should be removed.(ÂÔÁ†8¾Ò­ÍÖ.
+X	java:S125o"<This block of commented-out lines of code should be removed.(ÂÔÁ†8×œµÍÖ.
+g	java:S112@"FDefine and throw a dedicated exception instead of using a generic one.(²£åèøÿÿÿÿ8æÑÜÏÖ.
+X	java:S125e"<This block of commented-out lines of code should be removed.(ÂÔÁ†8İ²®ÍÖ.
+s
+java:S2159Z"VRemove this call to "equals"; comparisons between unrelated types always return false.(ô²îü8ùÔ‹ÍÖ.
+s
+java:S2159`"VRemove this call to "equals"; comparisons between unrelated types always return false.(Ï¢Şº8ùÔ‹ÍÖ.
+X	java:S125Y"<This block of commented-out lines of code should be removed.(ÂÔÁ†8¾Ò­ÍÖ.
+X	java:S125t"<This block of commented-out lines of code should be removed.(ÂÔÁ†8×œµÍÖ.
+X	java:S125\"<This block of commented-out lines of code should be removed.(ÂÔÁ†8¾Ò­ÍÖ.
+Y	java:S125ƒ"<This block of commented-out lines of code should be removed.(ÂÔÁ†8¤¹¶ÍÖ.
+X	java:S125_"<This block of commented-out lines of code should be removed.(ÂÔÁ†8¾Ò­ÍÖ.
+Y	java:S125ˆ"<This block of commented-out lines of code should be removed.(ÂÔÁ†8¤¹¶ÍÖ.
+X	java:S125~"<This block of commented-out lines of code should be removed.(ÂÔÁ†8ß×µÍÖ.
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.( †Ù´şÿÿÿÿ
+X
+java:S1128"6Remove this unused import 'java.io.PipedOutputStream'.(­‚’şÿÿÿÿ8ÁºäÌÖ.
+s
+java:S2159]"VRemove this call to "equals"; comparisons between unrelated types always return false.(ÅÖä¡8ùÔ‹ÍÖ.
+Y	java:S125"<This block of commented-out lines of code should be removed.(ÂÔÁ†8¤¹¶ÍÖ.
+r
+java:S2159T"VRemove this call to "equals"; comparisons between unrelated types always return false.(Â£øk8ñÿÌÖ.

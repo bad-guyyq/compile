@@ -1,0 +1,19 @@
+
+R	java:S125"<This block of commented-out lines of code should be removed.(ÂÔÁ†
+Q	java:S125W"<This block of commented-out lines of code should be removed.(ÂÔÁ†
+Q	java:S125u"<This block of commented-out lines of code should be removed.(ÂÔÁ†
+Q	java:S125z"<This block of commented-out lines of code should be removed.(ÂÔÁ†
+Q	java:S125f"<This block of commented-out lines of code should be removed.(ÂÔÁ†
+Q	java:S125c"<This block of commented-out lines of code should be removed.(ÂÔÁ†
+Q	java:S125Z"<This block of commented-out lines of code should be removed.(ÂÔÁ†
+`	java:S112@"FDefine and throw a dedicated exception instead of using a generic one.(²£åèøÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.( †Ù´şÿÿÿÿ
+Q	java:S125"<This block of commented-out lines of code should be removed.(ÂÔÁ†
+R	java:S125„"<This block of commented-out lines of code should be removed.(ÂÔÁ†
+R	java:S125‰"<This block of commented-out lines of code should be removed.(ÂÔÁ†
+Q	java:S125`"<This block of commented-out lines of code should be removed.(ÂÔÁ†
+Q	java:S125p"<This block of commented-out lines of code should be removed.(ÂÔÁ†
+Q
+java:S1128"6Remove this unused import 'java.io.PipedOutputStream'.(­‚’şÿÿÿÿ
+r	java:S117O"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›ŒŞ‚øÿÿÿÿ8ÓöûÖ.
+Q	java:S125]"<This block of commented-out lines of code should be removed.(ÂÔÁ†

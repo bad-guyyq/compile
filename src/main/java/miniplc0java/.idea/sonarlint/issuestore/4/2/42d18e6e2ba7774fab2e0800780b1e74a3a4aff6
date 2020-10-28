@@ -1,0 +1,13 @@
+
+9
+java:S1116Š"Remove this empty statement.(Æ‰óH8€û¾ÖÖ.
+U
+java:S2589"7Remove this expression which always evaluates to "true"(ûŒ“í8Š¨£ĞÖ.
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ø·Øæ8»ƒàÒÖ.
+a	java:S112Ì"FDefine and throw a dedicated exception instead of using a generic one.(²£åèøÿÿÿÿ
+h	java:S112­"FDefine and throw a dedicated exception instead of using a generic one.(²£åèøÿÿÿÿ8Ï´£×Ö.
+a	java:S112Ğ"FDefine and throw a dedicated exception instead of using a generic one.(²£åèøÿÿÿÿ
+s
+java:S1192Ğ"PDefine a constant instead of duplicating this literal "Not implemented" 3 times.(²£åèøÿÿÿÿ8Ï´£×Ö.
+}
+java:S4165´"fRemove this useless assignment; "negative" already holds the assigned value along all execution paths.(åèŸ•

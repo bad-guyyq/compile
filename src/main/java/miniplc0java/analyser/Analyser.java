@@ -359,8 +359,10 @@ public final class Analyser {
         } else if (symbol.isConstant) {
             // 标识符是常量
             throw new AnalyzeError(ErrorCode.AssignToConstant, /* 当前位置 */ nameToken.getStartPos());
-        }else{
+        }else {
+            expect(TokenType.Equal);
             analyseExpression();
+            expect(TokenType.Semicolon);
         }
         // 设置符号已初始化
         initializeSymbol(name, nameToken.getStartPos());

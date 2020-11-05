@@ -7,7 +7,11 @@
 ```none
 E -> E '+' T | T
 T -> T '*' F | F
-F -> '(' E ')' | 'i'
+F -> '(' E ')' | 'i'      E->T->F->i
+
+E -> E+T|T   E+F|E+i En
+
+E -> E+E|E*E|(E)|i
 ```
 
 |      |  +   |  *   |  i   |  (   |  )   |
@@ -18,6 +22,15 @@ F -> '(' E ')' | 'i'
 |  (   |  <   |  <   |  <   |  <   |  =0  |
 |  )   |  >   |  >   |      |      |  >   |
 
+python test.py "input.txt"
+
+cd E:\python\python3.7\
+
+E:
+
+python -version
+
+E:\python3.8\python.exe D:/py/Priority/test "input.txt"
 
 
 
@@ -45,22 +58,4 @@ F -> '(' E ')' | 'i'
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+i

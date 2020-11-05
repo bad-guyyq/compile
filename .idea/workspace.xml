@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2320ab32-16a2-4904-844d-019ff76d4755" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Priority.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Priority.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analyzer.md" beforeDir="false" afterPath="$PROJECT_DIR$/analyzer.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/priority.py" beforeDir="false" afterPath="$PROJECT_DIR$/priority.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test" beforeDir="false" afterPath="$PROJECT_DIR$/test" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -87,7 +81,7 @@
       <updated>1604479224966</updated>
       <workItem from="1604479232340" duration="14700000" />
       <workItem from="1604575366420" duration="899000" />
-      <workItem from="1604586477240" duration="7323000" />
+      <workItem from="1604586477240" duration="7607000" />
     </task>
     <servers />
   </component>

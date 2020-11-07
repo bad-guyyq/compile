@@ -33,8 +33,12 @@ class Priority:
                 return
             char = self.file_in.read(1)
         while(self.top!=0):
-            if (self.judge('#') == -1):
-                print('RE')
+            temp = self.judge("#")
+            if (temp == -1):
+                print("RE")
+                return
+            if (temp == 0):
+                print("E")
                 return
         if(self.list[0]=='i'):
             print("R\n")
@@ -46,7 +50,10 @@ class Priority:
 
     def priority_judge(self,a,b):
         if(b=="#"):
-            return -1
+            if(a=='(' ):
+                return 10
+            else:
+                return -1
         else:
             return self.pri[self.Vt(a)-1][self.Vt(b)-1]
 

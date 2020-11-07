@@ -21,11 +21,15 @@ class Priority:
                     print('I' + char)
                     self.list.append(char)
                 else:
-                   if(self.judge(char)==-1):
-                       print("RE")
-                       return
+                    temp=self.judge(char)
+                    if(temp==-1):
+                        print("RE")
+                        return
+                    if(temp==0):
+                        print("E")
+                        return
             else:
-                print('RE')
+                print('E')
                 return
             char = self.file_in.read(1)
         while(self.top!=0):
@@ -42,10 +46,7 @@ class Priority:
 
     def priority_judge(self,a,b):
         if(b=="#"):
-            if(a=='(' ):
-                return 10
-            else:
-                return -1
+            return -1
         else:
             return self.pri[self.Vt(a)-1][self.Vt(b)-1]
 
@@ -63,7 +64,7 @@ class Priority:
         ch=self.list[left]
         judge=self.priority_judge(ch,char)
         if(judge==10):
-            return -1 #解析失败
+            return 0 #解析失败
         elif(judge==0 or judge==1):
             if (char == '#'):
                 return

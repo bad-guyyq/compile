@@ -77,7 +77,7 @@ class Priority:
                 if(sta!=0):
                     del self.list[left-1:self.top+1]
                     self.list.append(sta)
-                    self.top=left-2
+                    self.top=self.top-2
                     print('R')
                     return self.judge(char) #规约成功，继续规约
                 else:
@@ -94,7 +94,7 @@ class Priority:
                 if (sta != 0):
                     del self.list[left - 2:self.top + 1]
                     self.list.append(sta)
-                    self.top = left - 2
+                    self.top = self.top - 2
                     print('R')
                     return self.judge(char)  # 规约成功，继续规约
                 else:

@@ -7,6 +7,7 @@ import miniplc0java.error.ExpectedTokenError;
 import miniplc0java.error.TokenizeError;
 import miniplc0java.instruction.Instruction;
 import miniplc0java.instruction.Operation;
+import miniplc0java.instruction.Function;
 import miniplc0java.tokenizer.Token;
 import miniplc0java.tokenizer.TokenType;
 import miniplc0java.tokenizer.Tokenizer;
@@ -15,131 +16,475 @@ import miniplc0java.util.Pos;
 import java.util.*;
 
 public final class Analyser {
-
     Tokenizer tokenizer;
-    ArrayList<Instruction> instructions;
-
+    ArrayList<Function> Func;
+    ArrayList<String> GlobalSymbol;
+    LinkedList<Integer> ActScope;//当前的作用域
+    //ActScope.getFirst();//当前函数下标 ActScope.size()-1;当作用域层数 ActScope.get()得到标号
     /** 当前偷看的 token */
     Token peekedToken = null;
-
-    /** 符号表 */
-    HashMap<String, SymbolEntry> symbolTable = new HashMap<>();
-
     /** 下一个变量的栈偏移 */
-    int nextOffset = 0;
+    int nextVariableOffset = 0;
+    int nextGlobalOffset = 0;
+    int nextParamOffset = 0;
+    //当前正在编译的函数
+    Function nowFunc;
+    /** 全局符号表 */
+    HashMap<String, SymbolEntry> symbolTable = new HashMap<>();
+    /** 当前block符号表*/
+    HashMap<String, SymbolEntry> now_block_symbolTable = new HashMap<>();
 
     public Analyser(Tokenizer tokenizer) {
         this.tokenizer = tokenizer;
-        this.instructions = new ArrayList<>();
+        this.Func= new ArrayList<>();
+        this.GlobalSymbol = new ArrayList<>();
+        this.ActScope = new LinkedList<>();
     }
 
-    public List<Instruction> analyse() throws CompileError {
+    public ArrayList<Function> analyse() throws CompileError {
         analyseProgram();
-        return instructions;
+        return Func;
     }
+    //*带有analyse的函数都是高
+    private void analyseProgram() throws CompileError {
+        // program -> decl_stmt* function*
+        // 设置作用域，设置_start函数，定义全局变量,
+        ActScope.add(0);
+        Function nowFunc=new Function();
+        nowFunc.setFunction("_start",0,0,0);
+        Func.add(nowFunc);
 
-    /**
-     * 查看下一个 Token
-     * 
-     * @return
-     * @throws TokenizeError
-     */
-    private Token peek() throws TokenizeError {
-        if (peekedToken == null) {
-            peekedToken = tokenizer.nextToken();
+        analyseGlobal();
+        analyseFunction();
+        // 'end'
+        expect(TokenType.EOF);
+    }
+    //函数分析
+    private void analyseFunction() throws CompileError{
+        //decl_stmt -> let_decl_stmt | const_decl_stmt
+        while(true){
+            if (check(TokenType.Fn)) {
+                function();
+            }else{
+                return;
+            }
         }
-        return peekedToken;
+    }
+    private void function() throws CompileError{
+        //function -> 'fn' IDENT '(' function_param_list? ')' '->' ty block_stmt
+        //将函数的VariableOffset，重置作用域
+        if(nextIf(TokenType.Fn)!=null){
+            nextVariableOffset=0;
+            nextParamOffset = 0;
+            int now_act=ActScope.getFirst()+1;
+            ActScope.remove();
+            ActScope.add(now_act);
+        }else{
+            return;
+        }
+        //new一个函数，注意要最后才加入计数完局部变量之后才加入符号表
+        nowFunc=new Function();
+        //在这个函数的func_symbolList中初始化第一个table
+        now_block_symbolTable=new HashMap<>();
+        nowFunc.func_symbolList.add(now_block_symbolTable);
+
+        var nameToken = expect(TokenType.IDENT);
+        String name = (String) nameToken.getValue();//函数名
+        //函数参数
+        fun_param();
+        //函数返回值类型,准备放在函数变量的表中
+        var typeToken = expect(TokenType.IDENT);
+        String type = (String) typeToken.getValue();
+
+        block_stmt();
+        // 加入符号表,判读全局
+        SymbolEntry func=addSymbol(name, true,false, true,false, nameToken.getStartPos());
+        if(!func.setType(type)){
+            throw new Error("TypeWrong");
+        };
+        //返回值
+        if(func.Type==TokenType.VOID_LITERAL){
+            nowFunc.setFunction(name,nextVariableOffset,nextParamOffset,0);
+        }else{
+            nowFunc.setFunction(name,nextVariableOffset,nextParamOffset,1);
+        }
+
+    }
+    private void fun_param()throws CompileError{
+        //function_param_list -> function_param (',' function_param)*
+        //function_param -> 'const'? IDENT ':' ty
+        expect(TokenType.L_PAREN);
+        param();
+        while (true) {
+            // 参数名,
+            var op = peek();
+            //没有逗号隔开
+            if (op.getTokenType() != TokenType.COMMA) {
+                break;
+            }
+            // 运算符
+            next();
+            param();
+        }
+        expect(TokenType.R_PAREN);
+    }
+    private void block_stmt()throws CompileError{
+
+    }
+    //*常量参数
+    private void param() throws CompileError{
+        // IDENT ':' ty
+        // 变量名
+        boolean isConstant=false;
+        if(nextIf(TokenType.Const)!=null){
+            isConstant=true;
+        }
+        var nameToken = expect(TokenType.IDENT);
+
+        // 加入符号表,加入时会判读全局
+        String name = (String) nameToken.getValue();
+        SymbolEntry Constant=addSymbol(name, false,isConstant, false, true,nameToken.getStartPos());
+        // *:号
+        expect(TokenType.COLON);
+
+        //*ty 设置变量类型
+        var typeToken = expect(TokenType.IDENT);
+        String type = (String) typeToken.getValue();
+        if(!Constant.setType(type)){
+            throw new Error("TypeWrong");
+        };
     }
 
-    /**
-     * 获取下一个 Token
-     * 
-     * @return
-     * @throws TokenizeError
-     */
-    private Token next() throws TokenizeError {
-        if (peekedToken != null) {
-            var token = peekedToken;
-            peekedToken = null;
-            return token;
+    //*变量参数
+    private void variable_param() throws CompileError{
+        // const_decl_stmt -> 'const' IDENT ':' ty '=' expr ';'
+        // 如果下一个 token 是 const 就继续
+        if (nextIf(TokenType.Const) != null) {
+            // 变量名
+            var nameToken = expect(TokenType.IDENT);
+
+            // 加入符号表,加入时会判读全局
+            String name = (String) nameToken.getValue();
+            SymbolEntry Constant=addSymbol(name, false,true, true, false,nameToken.getStartPos());
+            // *:号
+            expect(TokenType.COLON);
+
+            //*ty 设置变量类型
+            var typeToken = expect(TokenType.IDENT);
+            String type = (String) typeToken.getValue();
+            if(!Constant.setType(type)){
+                throw new Error("TypeWrong");
+            };
+            // 常表达式  *这里之后改成analyseExpr
+            if(Constant.isGlobal){
+                addInstruction(new Instruction(Operation.globa, Constant.getStackOffset()));
+            }else{
+                addInstruction(new Instruction(Operation.loca, Constant.getStackOffset()));
+            }
+            count_expr();
+
+            // *;分号
+            expect(TokenType.SEMICOLON);
+
+            //栈顶现在为 变量地址 表达式值
+            addInstruction(new Instruction(Operation.store64));
+        }
+    }
+    //全局分析
+    private void analyseGlobal() throws CompileError{
+        //decl_stmt -> let_decl_stmt | const_decl_stmt
+        while(true){
+            if (check(TokenType.Let)) {
+                let_decl_stmt();
+            }else if(check(TokenType.Const)){
+                const_decl_stmt();
+            }else{
+                return;
+            }
+        }
+    }
+    //*变量
+    private void let_decl_stmt() throws CompileError{
+        //let_decl_stmt -> 'let' IDENT ':' ty ('=' expr)? ';'
+        if (nextIf(TokenType.Let) != null) {
+            // 变量名
+            var nameToken = expect(TokenType.IDENT);
+            String name = (String) nameToken.getValue();
+            // *:号
+            expect(TokenType.COLON);
+            //*ty 设置变量类型
+            var typeToken = expect(TokenType.IDENT);
+            String type = (String) typeToken.getValue();
+
+            // 变量初始化了吗
+            boolean isInitialized = false;
+            // 下个 token 是等于号吗？如果是的话分析初始化
+            if(nextIf(TokenType.ASSIGN)!=null){
+                isInitialized=true;
+            }
+            // 加入符号表，请填写名字和当前位置（报错用）
+            //是否初始化这里计入初始值算不算初始化过了
+            SymbolEntry Variable=addSymbol(name, false,isInitialized, false,false,/* 当前位置 */ nameToken.getStartPos());
+            if(!Variable.setType(type)){
+                throw new Error("TypeWrong");
+            }
+            // 分析初始化的表达式
+            if(isInitialized){
+                if(Variable.isGlobal){
+                    addInstruction(new Instruction(Operation.globa, Variable.getStackOffset()));
+                }else{
+                    addInstruction(new Instruction(Operation.loca, Variable.getStackOffset()));
+                }
+                count_expr();
+                addInstruction(new Instruction(Operation.store64));
+            }
+            // 分号
+            expect(TokenType.SEMICOLON);
+             //如果没有初始化的话在栈里推入一个初始值]不管
+
+//            if(ActScope.getLast()==0){
+//                GlobalSymbol.add(name);
+//                addInstruction(new Instruction(Operation.globa, GlobalSymbol.size()-1));
+//                if (!isInitialized) {//未初始化直接配地址不用赋值
+//                }else{//等待改
+//                    addInstruction(new Instruction(Operation.push, value));
+//                }
+//            }
+
+        }
+    }
+    //*常量
+    private void const_decl_stmt() throws CompileError{
+        // const_decl_stmt -> 'const' IDENT ':' ty '=' expr ';'
+        // 如果下一个 token 是 const 就继续
+        if (nextIf(TokenType.Const) != null) {
+            // 变量名
+            var nameToken = expect(TokenType.IDENT);
+
+            // 加入符号表,加入时会判读全局
+            String name = (String) nameToken.getValue();
+            SymbolEntry Constant=addSymbol(name, false,true, true, false,nameToken.getStartPos());
+            // *:号
+            expect(TokenType.COLON);
+
+            //*ty 设置变量类型
+            var typeToken = expect(TokenType.IDENT);
+            String type = (String) typeToken.getValue();
+            if(!Constant.setType(type)){
+                throw new Error("TypeWrong");
+            };
+            // 常表达式  *这里之后改成analyseExpr
+            if(Constant.isGlobal){
+                addInstruction(new Instruction(Operation.globa, Constant.getStackOffset()));
+            }else{
+                addInstruction(new Instruction(Operation.loca, Constant.getStackOffset()));
+            }
+            count_expr();
+
+            // *;分号
+            expect(TokenType.SEMICOLON);
+
+            //栈顶现在为 变量地址 表达式值
+            addInstruction(new Instruction(Operation.store64));
+        }
+    }
+
+    //*表达式->项(+/-项)*
+    private void count_expr() throws CompileError{
+        //operator_expr -> expr binary_operator expr
+        // 表达式 -> 项 (加法运算符 项)*
+        // 项
+        boolean isDouble=false;
+        count_expr_Item(isDouble);
+        while (true) {
+            // 预读可能是运算符的 token
+            var op = peek();
+            if (op.getTokenType() != TokenType.PLUS && op.getTokenType() != TokenType.MINUS) {
+                break;
+            }
+            // 运算符
+            next();
+            // 项
+            count_expr_Item(isDouble);
+            // 生成代码
+            if (op.getTokenType() == TokenType.PLUS) {
+                if(isDouble){
+                    addInstruction(new Instruction(Operation.addf));
+                }else{
+                    addInstruction(new Instruction(Operation.addi));
+                }
+            } else if (op.getTokenType() == TokenType.MINUS) {
+                if(isDouble){
+                    addInstruction(new Instruction(Operation.subf));
+                }else{
+                    addInstruction(new Instruction(Operation.subi));
+                }
+            }else{
+                throw new Error("*/error");
+            }
+        }
+    }
+    //*项->因子(*//因子)*
+    private void count_expr_Item(boolean isDouble) throws CompileError{
+        // 项 -> 因子 (乘法运算符 因子)*
+        // 因子
+        count_expr_Factor(isDouble);
+        while (true) {
+            // 预读可能是运算符的 token
+            Token op = peek();
+            if (op.getTokenType()!= TokenType.MINUS &&op.getTokenType()!= TokenType.DIV){
+                break;
+            }
+            // 运算符
+            next();
+            // 因子
+            count_expr_Factor(isDouble);
+            // 生成代码
+            if (op.getTokenType() == TokenType.MINUS) {
+                if(isDouble){
+                    addInstruction(new Instruction(Operation.mulf));
+                }else{
+                    addInstruction(new Instruction(Operation.muli));
+                }
+            } else if (op.getTokenType() == TokenType.DIV) {
+                if(isDouble){
+                    addInstruction(new Instruction(Operation.divf));
+                }else{
+                    addInstruction(new Instruction(Operation.divi));
+                }
+            }else{
+                throw new Error("*/error");
+            }
+        }
+    }
+    //*因子->符号?(标识符|无符号整数|'(' 表达式 ')')
+    private void count_expr_Factor(boolean isDouble) throws CompileError{
+        boolean negate;
+        if (nextIf(TokenType.MINUS) != null) {
+            negate = true;
+            // 计算结果出来后加上neg指令
+            //instructions.add(new Instruction(Operation.LIT, 0));
         } else {
-            return tokenizer.nextToken();
+            nextIf(TokenType.PLUS);
+            negate = false;
+        }
+        if (check(TokenType.IDENT)) {
+            // 是标识符
+            Token nameToken = next();
+            // 加载标识符的值
+            loadVariable(nameToken);
+        } else if (check(TokenType.UINT_LITERAL)) {
+            // 是整数
+            var nameToken = next();
+            // 加载整数值
+            int value = (int)nameToken.getValue();
+            addInstruction(new Instruction(Operation.push, value));
+        } else if (check(TokenType.DOUBLE_LITERAL)) {
+            isDouble=true;
+            // 是浮点数
+            var nameToken = next();
+            // 加载整数值
+            Double value = (Double)nameToken.getValue();
+            addInstruction(new Instruction(Operation.push, value));
+        } else if (check(TokenType.L_PAREN)) {// 是(表达式)
+            next();
+            // 调用相应的处理函数
+            count_expr();
+            expect(TokenType.R_PAREN);
+        } else { // 都不是，摸了
+            throw new ExpectedTokenError(List.of(TokenType.IDENT, TokenType.UINT_LITERAL, TokenType.L_PAREN), next());
+        }
+        if (negate) {
+            if(isDouble){
+                addInstruction(new Instruction(Operation.negf));
+            }
+            else{
+                addInstruction(new Instruction(Operation.negi));
+            }
         }
     }
-
-    /**
-     * 如果下一个 token 的类型是 tt，则返回 true
-     * 
-     * @param tt
-     * @return
-     * @throws TokenizeError
-     */
-    private boolean check(TokenType tt) throws TokenizeError {
-        var token = peek();
-        return token.getTokenType() == tt;
+    //工具方法
+    /**函数里加指令*/
+    private void addInstruction(Instruction temp){
+        Func.get(ActScope.getFirst()).Body.add(temp);
     }
-
-    /**
-     * 如果下一个 token 的类型是 tt，则前进一个 token 并返回这个 token
-     * 
-     * @param tt 类型
-     * @return 如果匹配则返回这个 token，否则返回 null
-     * @throws TokenizeError
-     */
-    private Token nextIf(TokenType tt) throws TokenizeError {
-        var token = peek();
-        if (token.getTokenType() == tt) {
-            return next();
-        } else {
-            return null;
+    //Function nowFunc
+    /**加载变量也就是找到变量的地址然后把变量的值压到栈顶*/
+    private void loadVariable(Token nameToken) throws AnalyzeError {
+        String name = (String) nameToken.getValue();/* 快填 */
+        var symbol = symbolTable.get(name);
+        if (symbol == null) {
+            // 没有这个标识符
+            throw new AnalyzeError(ErrorCode.NotDeclared, /* 当前位置 */ nameToken.getStartPos());
+        } else if (!symbol.isInitialized) {
+            // 标识符没初始化
+            throw new AnalyzeError(ErrorCode.NotInitialized, /* 当前位置 */ nameToken.getStartPos());
+        }
+        if(symbol.isGlobal){
+            var offset = getOffset(name, nameToken.getStartPos());//全局变量的位置，定义时设置
+            addInstruction(new Instruction(Operation.globa, offset));
+            addInstruction(new Instruction(Operation.load64));
+        }else{
+            var offset = getOffset(name, nameToken.getStartPos());//局部变量在栈中的位置
+            addInstruction(new Instruction(Operation.loca, offset));
+            addInstruction(new Instruction(Operation.load64));
         }
     }
-
-    /**
-     * 如果下一个 token 的类型是 tt，则前进一个 token 并返回，否则抛出异常
-     * 
-     * @param tt 类型
-     * @return 这个 token
-     * @throws CompileError 如果类型不匹配
-     */
-    private Token expect(TokenType tt) throws CompileError {
-        var token = peek();
-        if (token.getTokenType() == tt) {
-            return next();
-        } else {
-            throw new ExpectedTokenError(tt, token);
-        }
-    }
-
     /**
      * 获取下一个变量的栈偏移
-     * 
-     * @return
      */
     private int getNextVariableOffset() {
-        return this.nextOffset++;
+        return this.nextVariableOffset++;
     }
+    private int getNextGlobalOffset() {
+        return this.nextGlobalOffset++;
+    }
+    private int getNextParamOffset() {
+        return this.nextParamOffset++;
+    }
+    /** 添加变量*/
+    private SymbolEntry addSymbol(String name,boolean isFunction,  boolean isConstant, boolean isInitialized,boolean ipParam, Pos curPos) throws AnalyzeError {
+        //全局变量
+        if(this.ActScope.getFirst()==0||isFunction){
+            if (this.symbolTable.get(name) != null) {
+                throw new AnalyzeError(ErrorCode.DuplicateDeclaration, curPos);
+            } else {
+                SymbolEntry temp;
+                GlobalSymbol.add(name);
+                temp=new SymbolEntry(isFunction, isConstant, isInitialized,ipParam,getNextGlobalOffset());
+                temp.setGlobal(true);
+                temp.setActScope(this.ActScope);
+                this.symbolTable.put(name,temp);
+                return temp;
+            }
+        }else{//非全局
+            return addBlockSymbol(name,isFunction, isConstant, isInitialized,ipParam,curPos);
+        }
 
-    /**
-     * 添加一个符号
-     * 
-     * @param name          名字
-     * @param isInitialized 是否已赋值
-     * @param isConstant    是否是常量
-     * @param curPos        当前 token 的位置（报错用）
-     * @throws AnalyzeError 如果重复定义了则抛异常
-     */
-    private void addSymbol(String name, boolean isInitialized, boolean isConstant, Pos curPos) throws AnalyzeError {
-        if (this.symbolTable.get(name) != null) {
+    }
+    //Boolean isFunction,boolean isConstant, boolean isInitialized, boolean isParam,int stackOffset
+    /**添加一个符号，非全局，设置作用域*/
+    private SymbolEntry addBlockSymbol(String name,boolean isFunction,  boolean isConstant,boolean isInitialized,boolean ipParam, Pos curPos) throws AnalyzeError {
+        if (now_block_symbolTable.get(name) != null) {
             throw new AnalyzeError(ErrorCode.DuplicateDeclaration, curPos);
         } else {
-            this.symbolTable.put(name, new SymbolEntry(isConstant, isInitialized, getNextVariableOffset()));
+            SymbolEntry temp;
+            int offset;
+            if(ipParam){
+                offset=getNextParamOffset();
+            }else{
+                offset= getNextVariableOffset();
+            }
+            temp=new SymbolEntry(isFunction, isConstant, isInitialized,ipParam,offset);
+            temp.setGlobal(false);
+            temp.setActScope(this.ActScope);
+            now_block_symbolTable.put(name,temp);
+            return temp;
         }
     }
-
     /**
      * 设置符号为已赋值
-     * 
+     *
      * @param name   符号名称
      * @param curPos 当前位置（报错用）
      * @throws AnalyzeError 如果未定义则抛异常
@@ -152,10 +497,9 @@ public final class Analyser {
             entry.setInitialized(true);
         }
     }
-
     /**
      * 获取变量在栈上的偏移
-     * 
+     *
      * @param name   符号名
      * @param curPos 当前位置（报错用）
      * @return 栈偏移
@@ -169,10 +513,9 @@ public final class Analyser {
             return entry.getStackOffset();
         }
     }
-
     /**
      * 获取变量是否是常量
-     * 
+     *
      * @param name   符号名
      * @param curPos 当前位置（报错用）
      * @return 是否为常量
@@ -186,279 +529,73 @@ public final class Analyser {
             return entry.isConstant();
         }
     }
-
-    private void analyseProgram() throws CompileError {
-        // 程序 -> 'begin' 主过程 'end'
-        // 示例函数，示例如何调用子程序
-        // 'begin'
-        expect(TokenType.Begin);
-
-        analyseMain();
-
-        // 'end'
-        expect(TokenType.End);
-        expect(TokenType.EOF);
-    }
-    //1
-    private void analyseMain() throws CompileError {
-        // 主过程 -> 常量声明 变量声明 语句序列
-        analyseConstantDeclaration();
-        analyseVariableDeclaration();
-        analyseStatementSequence();
-        //throw new Error("Not implemented");
-    }
-    //2
-    private void analyseConstantDeclaration() throws CompileError {
-        // 示例函数，示例如何解析常量声明
-        // 常量声明 -> 常量声明语句*
-
-        // 如果下一个 token 是 const 就继续
-        while (nextIf(TokenType.Const) != null) {
-            // 常量声明语句 -> 'const' 变量名 '=' 常表达式 ';'
-
-            // 变量名
-            var nameToken = expect(TokenType.Ident);
-
-            // 加入符号表
-            String name = (String) nameToken.getValue();
-            addSymbol(name, true, true, nameToken.getStartPos());
-
-            // 等于号
-            expect(TokenType.Equal);
-
-            // 常表达式
-            var value = analyseConstantExpression();
-
-            // 分号
-            expect(TokenType.Semicolon);
-
-            // 这里把常量值直接放进栈里，位置和符号表记录的一样。
-            // 更高级的程序还可以把常量的值记录下来，遇到相应的变量直接替换成这个常数值，
-            // 我们这里就先不这么干了。
-            instructions.add(new Instruction(Operation.LIT, value));
+    /**
+     * 查看下一个 Token
+     *
+     * @return
+     * @throws TokenizeError
+     */
+    private Token peek() throws TokenizeError {
+        if (peekedToken == null) {
+            peekedToken = tokenizer.nextToken();
         }
+        return peekedToken;
     }
-    //3
-    private void analyseVariableDeclaration() throws CompileError {
-        // 变量声明 -> 变量声明语句*
-
-        // 如果下一个 token 是 var 就继续
-        while (nextIf(TokenType.Var) != null) {
-            // 变量声明语句 -> 'var' 变量名 ('=' 表达式)? ';'
-
-            // 变量名
-            var nameToken = expect(TokenType.Ident);
-            // 变量初始化了吗opop
-            boolean initialized = false;
-
-            // 下个 token 是等于号吗？如果是的话分析初始化
-            if(nextIf(TokenType.Equal)!=null){
-                initialized=true;
-            }
-            // 分析初始化的表达式
-            if(initialized){
-                analyseExpression();
-            }
-            // 分号
-            expect(TokenType.Semicolon);
-
-            // 加入符号表，请填写名字和当前位置（报错用）
-            String name = /* 名字 */ (String) nameToken.getValue();;
-            //是否初始化这里计入初始值算不算初始化过了
-            addSymbol(name, initialized, false, /* 当前位置 */ nameToken.getStartPos());
-
-            // 如果没有初始化的话在栈里推入一个初始值
-            if (!initialized) {
-                instructions.add(new Instruction(Operation.LIT, 0));
-            }
-        }
-    }
-    //4
-    private void analyseStatementSequence() throws CompileError {
-        // 语句序列 -> 语句*
-        // 语句 -> 赋值语句 | 输出语句 | 空语句
-
-        while (true) {
-            // 如果下一个 token 是……
-            var peeked = peek();
-            if (peeked.getTokenType() == TokenType.Ident) {
-                // 调用相应的分析函数
-                analyseAssignmentStatement();
-                // 如果遇到其他非终结符的 FIRST 集呢？
-            }else if (peeked.getTokenType() == TokenType.Print) {
-                // 调用相应的分析函数
-                analyseOutputStatement();
-                // 如果遇到其他非终结符的 FIRST 集呢？
-            }else if(peeked.getTokenType() == TokenType.Semicolon){
-                next();
-            }
-            else {
-                // 都不是，摸了
-                break;
-            }
-        }
-        //?这个异常一定会输出
-        //throw new Error("Not implemented");
-    }
-    //a
-    private int analyseConstantExpression() throws CompileError {
-        // 常表达式 -> 符号? 无符号整数
-        boolean negative = false;
-        if (nextIf(TokenType.Plus) != null) {
-            negative = false;
-        } else if (nextIf(TokenType.Minus) != null) {
-            negative = true;
-        }
-        var token = expect(TokenType.Uint);
-
-        int value = (int) token.getValue();
-        if (negative) {
-            value = -value;
-        }
-        return value;
-    }
-    //5
-    private void analyseExpression() throws CompileError {
-        // 表达式 -> 项 (加法运算符 项)*
-        // 项
-        analyseItem();
-
-        while (true) {
-            // 预读可能是运算符的 token
-            var op = peek();
-            if (op.getTokenType() != TokenType.Plus && op.getTokenType() != TokenType.Minus) {
-                break;
-            }
-
-            // 运算符
-            next();
-
-            // 项
-            analyseItem();
-
-            // 生成代码
-            if (op.getTokenType() == TokenType.Plus) {
-                instructions.add(new Instruction(Operation.ADD));
-            } else if (op.getTokenType() == TokenType.Minus) {
-                instructions.add(new Instruction(Operation.SUB));
-            }
-        }
-    }
-
-    private void analyseAssignmentStatement() throws CompileError {
-        // 赋值语句 -> 标识符 '=' 表达式 ';'
-
-        // 分析这个语句
-        var nameToken = next();
-        // 标识符是什么？
-        String name = (String) nameToken.getValue();
-        var symbol = symbolTable.get(name);
-        if (symbol == null) {
-            // 没有这个标识符
-            throw new AnalyzeError(ErrorCode.NotDeclared, /* 当前位置 */ nameToken.getStartPos());
-        } else if (symbol.isConstant) {
-            // 标识符是常量
-            throw new AnalyzeError(ErrorCode.AssignToConstant, /* 当前位置 */ nameToken.getStartPos());
-        }else {
-            expect(TokenType.Equal);
-            analyseExpression();
-            expect(TokenType.Semicolon);
-        }
-        // 设置符号已初始化
-        initializeSymbol(name, nameToken.getStartPos());
-
-        // 把结果保存
-        var offset = getOffset(name, nameToken.getStartPos());
-        instructions.add(new Instruction(Operation.STO, offset));
-    }
-
-    private void analyseOutputStatement() throws CompileError {
-        // 输出语句 -> 'print' '(' 表达式 ')' ';'
-
-        expect(TokenType.Print);
-        expect(TokenType.LParen);
-
-        analyseExpression();
-
-        expect(TokenType.RParen);
-        expect(TokenType.Semicolon);
-
-        instructions.add(new Instruction(Operation.WRT));
-    }
-    //（1）
-    private void analyseItem() throws CompileError {
-        // 项 -> 因子 (乘法运算符 因子)*
-
-        // 因子
-        analyseFactor();
-
-        while (true) {
-            // 预读可能是运算符的 token
-            Token op = peek();
-            if (op.getTokenType()!= TokenType.Mult &&op.getTokenType()!= TokenType.Div){
-                break;
-            }
-            // 运算符
-            next();
-            // 因子
-            analyseFactor();
-            // 生成代码
-            if (op.getTokenType() == TokenType.Mult) {
-                instructions.add(new Instruction(Operation.MUL));
-            } else if (op.getTokenType() == TokenType.Div) {
-                instructions.add(new Instruction(Operation.DIV));
-            }
-        }
-    }
-    //（2）
-    private void analyseFactor() throws CompileError {
-        // 因子 -> 符号? (标识符 | 无符号整数 | '(' 表达式 ')')
-
-        boolean negate;
-        if (nextIf(TokenType.Minus) != null) {
-            negate = true;
-            // 计算结果需要被 0 减
-            instructions.add(new Instruction(Operation.LIT, 0));
+    /**
+     * 获取下一个 Token
+     *
+     * @return
+     * @throws TokenizeError
+     */
+    private Token next() throws TokenizeError {
+        if (peekedToken != null) {
+            var token = peekedToken;
+            peekedToken = null;
+            return token;
         } else {
-            nextIf(TokenType.Plus);
-            negate = false;
+            return tokenizer.nextToken();
         }
-
-        if (check(TokenType.Ident)) {
-            // 是标识符
-            var nameToken = next();
-            // 加载标识符的值
-            String name = (String) nameToken.getValue();/* 快填 */
-            var symbol = symbolTable.get(name);
-            if (symbol == null) {
-                // 没有这个标识符
-                throw new AnalyzeError(ErrorCode.NotDeclared, /* 当前位置 */ nameToken.getStartPos());
-            } else if (!symbol.isInitialized) {
-                // 标识符没初始化
-                throw new AnalyzeError(ErrorCode.NotInitialized, /* 当前位置 */ nameToken.getStartPos());
-            }
-            var offset = getOffset(name, nameToken.getStartPos());//这个不太确定
-            instructions.add(new Instruction(Operation.LOD, offset));
-        } else if (check(TokenType.Uint)) {
-            // 是整数
-            var nameToken = next();
-            // 加载整数值
-            int value = (int)nameToken.getValue();
-            instructions.add(new Instruction(Operation.LIT, value));
-        } else if (check(TokenType.LParen)) {
-            // 是表达式
-            next();
-            // 调用相应的处理函数
-            analyseExpression();
-            expect(TokenType.RParen);
-        } else {
-            // 都不是，摸了
-            throw new ExpectedTokenError(List.of(TokenType.Ident, TokenType.Uint, TokenType.LParen), next());
-        }
-
-        if (negate) {
-            instructions.add(new Instruction(Operation.SUB));
-        }
-        //throw new Error("Not implemented");
     }
+    /**
+     * 如果下一个 token 的类型是 tt，则返回 true
+     *
+     * @param tt
+     * @return
+     * @throws TokenizeError
+     */
+    private boolean check(TokenType tt) throws TokenizeError {
+        var token = peek();
+        return token.getTokenType() == tt;
+    }
+    /**
+     * 如果下一个 token 的类型是 tt，则前进一个 token 并返回这个 token
+     *
+     * @param tt 类型
+     * @return 如果匹配则返回这个 token，否则返回 null
+     * @throws TokenizeError
+     */
+    private Token nextIf(TokenType tt) throws TokenizeError {
+        var token = peek();
+        if (token.getTokenType() == tt) {
+            return next();
+        } else {
+            return null;
+        }
+    }
+    /**
+     * 如果下一个 token 的类型是 tt，则前进一个 token 并返回，否则抛出异常
+     *
+     * @param tt 类型
+     * @return 这个 token
+     * @throws CompileError 如果类型不匹配
+     */
+    private Token expect(TokenType tt) throws CompileError {
+        var token = peek();
+        if (token.getTokenType() == tt) {
+            return next();
+        } else {
+            throw new ExpectedTokenError(tt, token);
+        }
+    }
+
 }

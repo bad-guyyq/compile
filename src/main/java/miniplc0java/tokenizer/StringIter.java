@@ -70,6 +70,15 @@ public class StringIter {
         }
         return new Pos(ptr.row, ptr.col + 1);
     }
+    public void nextLineByAnnotation(){
+        this.peeked = Optional.empty();
+        this.ptr = new Pos(ptr.row + 1, 0);
+        if (isEOF()) {
+            return ;
+        }
+        ptrNext = nextPos();
+        return ;
+    }
 
     /**
      * 获取当前字符的位置

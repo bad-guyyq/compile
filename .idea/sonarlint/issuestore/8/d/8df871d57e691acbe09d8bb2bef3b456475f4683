@@ -1,19 +1,64 @@
 
-R	java:S125"<This block of commented-out lines of code should be removed.(ÂÔÁ†
-Q	java:S125W"<This block of commented-out lines of code should be removed.(ÂÔÁ†
-Q	java:S125u"<This block of commented-out lines of code should be removed.(ÂÔÁ†
-Q	java:S125z"<This block of commented-out lines of code should be removed.(ÂÔÁ†
-Q	java:S125f"<This block of commented-out lines of code should be removed.(ÂÔÁ†
-Q	java:S125c"<This block of commented-out lines of code should be removed.(ÂÔÁ†
-Q	java:S125Z"<This block of commented-out lines of code should be removed.(ÂÔÁ†
-`	java:S112@"FDefine and throw a dedicated exception instead of using a generic one.(²£åèøÿÿÿÿ
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.( †Ù´şÿÿÿÿ
-Q	java:S125"<This block of commented-out lines of code should be removed.(ÂÔÁ†
-R	java:S125„"<This block of commented-out lines of code should be removed.(ÂÔÁ†
-R	java:S125‰"<This block of commented-out lines of code should be removed.(ÂÔÁ†
-Q	java:S125`"<This block of commented-out lines of code should be removed.(ÂÔÁ†
-Q	java:S125p"<This block of commented-out lines of code should be removed.(ÂÔÁ†
+`	java:S112N"FDefine and throw a dedicated exception instead of using a generic one.(²£åèøÿÿÿÿ
 Q
 java:S1128"6Remove this unused import 'java.io.PipedOutputStream'.(­‚’şÿÿÿÿ
-r	java:S117O"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›ŒŞ‚øÿÿÿÿ8ÓöûÖ.
-Q	java:S125]"<This block of commented-out lines of code should be removed.(ÂÔÁ†
+o	java:S1009"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²÷¡Óşÿÿÿÿ8ï€è›á.
+U
+java:S1854P"8Remove this useless assignment to local variable "peek".(Úó•ô8ï€è›á.
+Y	java:S125—"<This block of commented-out lines of code should be removed.(ÂÔÁ†8±êá.
+g	java:S1123"FDefine and throw a dedicated exception instead of using a generic one.(²£åèøÿÿÿÿ8£‹‰Šâ.
+V
+java:S1854Ô"8Remove this useless assignment to local variable "peek".(Úó•ô8£‹‰Šâ.
+?
+java:S1659º"!Declare "ans" on a separate line.(Ë‘ÃÀ8£‹‰Šâ.
+Y	java:S125”"<This block of commented-out lines of code should be removed.(ÂÔÁ†8ƒµãá.
+g	java:S112`"FDefine and throw a dedicated exception instead of using a generic one.(²£åèøÿÿÿÿ8š€Ñá.
+R	java:S125…"<This block of commented-out lines of code should be removed.(ÂÔÁ†
+s	java:S117š"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›ŒŞ‚øÿÿÿÿ8£‹‰Šâ.
+R	java:S125Ç"<This block of commented-out lines of code should be removed.(ÂÔÁ†
+h	java:S112×"FDefine and throw a dedicated exception instead of using a generic one.(²£åèøÿÿÿÿ8µÆ”„ä.
+h	java:S112Ì"FDefine and throw a dedicated exception instead of using a generic one.(²£åèøÿÿÿÿ8‚Ş˜Šâ.
+R	java:S125‹"<This block of commented-out lines of code should be removed.(ÂÔÁ†
+R	java:S125·"<This block of commented-out lines of code should be removed.(ÂÔÁ†
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.( †Ù´şÿÿÿÿ
+X	java:S125Z"<This block of commented-out lines of code should be removed.(ÂÔÁ†8™Í¹Šâ.
+R	java:S125‚"<This block of commented-out lines of code should be removed.(ÂÔÁ†
+R	java:S125¼"<This block of commented-out lines of code should be removed.(ÂÔÁ†
+V
+java:S1854´"8Remove this useless assignment to local variable "peek".(Úó•ô8£‹‰Šâ.
+Y	java:S125Ò"<This block of commented-out lines of code should be removed.(ÂÔÁ†8¶ı”Šâ.
+R	java:S125ˆ"<This block of commented-out lines of code should be removed.(ÂÔÁ†
+s
+java:S11923"QDefine a constant instead of duplicating this literal "Not implemented" 10 times.(²£åèøÿÿÿÿ8š€Ñá.
+h	java:S112¼"FDefine and throw a dedicated exception instead of using a generic one.(²£åèøÿÿÿÿ8£‹‰Šâ.
+Y	java:S125ê"<This block of commented-out lines of code should be removed.(ÂÔÁ†8«Ñ›Šâ.
+Y	java:S125ô"<This block of commented-out lines of code should be removed.(ÂÔÁ†8Ï¹¦Šâ.
+r	java:S117z"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›ŒŞ‚øÿÿÿÿ8ÓöûÖ.
+X	java:S125Q"<This block of commented-out lines of code should be removed.(½ø¹8ï€è›á.
+Y	java:S125"<This block of commented-out lines of code should be removed.(ÂÔÁ†8µ¯µŠâ.
+X	java:S125h"<This block of commented-out lines of code should be removed.(ÂÔÁ†8”ºŠâ.
+X	java:S125]"<This block of commented-out lines of code should be removed.(½ø¹8š€Ñá.
+h	java:S112­"FDefine and throw a dedicated exception instead of using a generic one.(²£åèøÿÿÿÿ8£‹‰Šâ.
+Y	java:S125ˆ"<This block of commented-out lines of code should be removed.(ÂÔÁ†8É¬¬Šâ.
+Y	java:S125²"<This block of commented-out lines of code should be removed.(ÂÔÁ†8¨·Šâ.
+Y	java:S125ù"<This block of commented-out lines of code should be removed.(ÂÔÁ†8Ìë¦Šâ.
+h	java:S112Î"FDefine and throw a dedicated exception instead of using a generic one.(²£åèøÿÿÿÿ8£‹‰Šâ.
+u
+java:S3776¤"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(ƒíæ†üÿÿÿÿ8¨·Šâ.
+U
+java:S1854\"8Remove this useless assignment to local variable "peek".(Úó•ô8š€Ñá.
+Y	java:S125ş"<This block of commented-out lines of code should be removed.(ÂÔÁ†8Ìë¦Šâ.
+h	java:S112—"FDefine and throw a dedicated exception instead of using a generic one.(²£åèøÿÿÿÿ8£‹‰Šâ.
+t
+java:S37769"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(²÷¡Óşÿÿÿÿ8š€Ñá.
+Y	java:S125ï"<This block of commented-out lines of code should be removed.(ÂÔÁ†8Ï¹¦Šâ.
+R	java:S125"<This block of commented-out lines of code should be removed.(ÂÔÁ†
+R	java:S125 "<This block of commented-out lines of code should be removed.(ÂÔÁ†
+u
+java:S3776”"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(¹”²Ëşÿÿÿÿ8£‹‰Šâ.
+h	java:S112·"FDefine and throw a dedicated exception instead of using a generic one.(²£åèøÿÿÿÿ8£‹‰Šâ.
+Y	java:S125ƒ"<This block of commented-out lines of code should be removed.(ÂÔÁ†8É¬¬Šâ.
+Y	java:S125"<This block of commented-out lines of code should be removed.(ÂÔÁ†8ƒ¹êá.
+Y	java:S125ß"<This block of commented-out lines of code should be removed.(ÂÔÁ†8÷£›Šâ.
+Y	java:S125š"<This block of commented-out lines of code should be removed.(ÂÔÁ†8ƒ¹êá.
+Y	java:S125‘"<This block of commented-out lines of code should be removed.(ÂÔÁ†8ˆãá.

@@ -1,6 +1,3 @@
 
-F
-java:S1128"+Remove this unused import 'org.junit.Test'.(ùøèøÿÿÿÿ
-]
-java:S2094"BRemove this empty class, write its code or make it an "interface".(µŠÚûÿÿÿÿ
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(…å¦ı
+?
+java:S2187"Add some tests to this class.(µŠÚûÿÿÿÿ8¸µÃŸá.

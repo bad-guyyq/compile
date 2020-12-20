@@ -25,6 +25,7 @@ import net.sourceforge.argparse4j.inf.ArgumentParser;
 import net.sourceforge.argparse4j.inf.ArgumentParserException;
 import net.sourceforge.argparse4j.inf.Namespace;
 
+
 public class App {
     public static void main(String[] args) throws CompileError {
         var argparse = buildArgparse();
@@ -38,7 +39,7 @@ public class App {
 
         var inputFileName = result.getString("input");
         var outputFileName = result.getString("output");
-
+        //设置输入
         InputStream input;
         if (inputFileName.equals("-")) {
             input = System.in;
@@ -52,7 +53,7 @@ public class App {
                 return;
             }
         }
-
+        //设置输出
         PrintStream output;
         if (outputFileName.equals("-")) {
             output = System.out;
@@ -71,7 +72,7 @@ public class App {
         scanner = new Scanner(input);
         var iter = new StringIter(scanner);
         var tokenizer = tokenize(iter);
-
+        //词法分析
         if (result.getBoolean("tokenize")) {
             // tokenize
             var tokens = new ArrayList<Token>();
@@ -88,25 +89,27 @@ public class App {
                 System.err.println(e);
                 System.exit(0);
                 return;
-            }
+            }//输出每个token
             for (Token token : tokens) {
                 output.println(token.toString());
             }
-        } else if (result.getBoolean("analyse")) {
-            // analyze
-            var analyzer = new Analyser(tokenizer);
-            List<Instruction> instructions;
-            try {
-                instructions = analyzer.analyse();
-            } catch (Exception e) {
-                // 遇到错误不输出，直接退出
-                System.err.println(e);
-                System.exit(0);
-                return;
-            }
-            for (Instruction instruction : instructions) {
-                output.println(instruction.toString());
-            }
+        //语法分析
+//        } else if (result.getBoolean("analyse")) {
+//            // analyze
+//            var analyzer = new Analyser(tokenizer);
+//            List<Instruction> instructions;
+//            try {
+//                instructions = analyzer.analyse();
+//            } catch (Exception e) {
+//                // 遇到错误不输出，直接退出
+//                System.err.println(e);
+//                System.exit(0);
+//                return;
+//            }
+//            //输出每个Instruction的tostring
+//            for (Instruction instruction : instructions) {
+//                output.println(instruction.toString());
+//            }
         } else {
             System.err.println("Please specify either '--analyse' or '--tokenize'.");
             System.exit(3);

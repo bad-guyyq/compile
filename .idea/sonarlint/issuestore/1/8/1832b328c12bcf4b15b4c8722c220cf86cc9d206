@@ -1,0 +1,16 @@
+
+M
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8Ş”®Óç.
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ø·Øæ
+Y
+java:S1128"=Remove this unused import 'miniplc0java.error.TokenizeError'.(¢”¾h8ºäÌÒç.
+u	java:S116"TRename this field "FactionId" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÖŠéÿÿÿÿÿ8û·¶ùç.
+m	java:S117'"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õÈşÙ8û·¶ùç.
+o	java:S116"SRename this field "ActScope" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÛÀœÚ8ˆåßÓç.
+T
+java:S1128"2Remove this unused import 'miniplc0java.util.Pos'.(‘°Ú¤úÿÿÿÿ8ºäÌÒç.
+
+java:S1319'"qThe type of the "Scope" object should be an interface such as "List" rather than the implementation "LinkedList".(õÈşÙ8û·¶ùç.
+K
+java:S1128".Remove this unused import 'java.util.Objects'.(¼¸õ›8ºäÌÒç.
+p	java:S116"ORename this field "Type" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œ¡°İúÿÿÿÿ8äüÍÒç.

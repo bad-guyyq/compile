@@ -1,0 +1,20 @@
+
+S	java:S106;"9Replace this use of System.out or System.err by a logger.(“£‹·ÿÿÿÿÿ
+S	java:S106Y"9Replace this use of System.out or System.err by a logger.(Şàš¬øÿÿÿÿ
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(…å¦ı
+N	java:S1062"9Replace this use of System.out or System.err by a logger.(šö•Í
+M	java:S106@"9Replace this use of System.out or System.err by a logger.(°ŠÚ:
+m
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(™ˆ¤ˆÿÿÿÿÿ
+E
+java:S5411L"*Use the primitive boolean expression here.(ß‘˜–ùÿÿÿÿ
+S	java:S106r"9Replace this use of System.out or System.err by a logger.(ĞÖœÓıÿÿÿÿ
+_
+java:S2095>"IUse try-with-resources or close this "PrintStream" in a "finally" clause.(¦“
+?
+java:S1128")Remove this unused import 'java.io.File'.(†Ğ¥Å
+`
+java:S1128"JRemove this unused import 'net.sourceforge.argparse4j.inf.ArgumentAction'.(‹”µ›
+}
+java:S1488ƒ"aImmediately return this expression instead of assigning it to the temporary variable "tokenizer".(ÖœÃıÿÿÿÿ
+]	java:S125a"<This block of commented-out lines of code should be removed.(ƒ„¤…şÿÿÿÿ8éø‹è.

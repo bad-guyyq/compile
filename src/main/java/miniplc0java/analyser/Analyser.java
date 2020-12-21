@@ -289,6 +289,46 @@ public final class Analyser {
         }
     }
 
+    /**布尔比较式,分析表示式是否为真，为假时为0，结果放在栈顶。
+    //是否为浮点数之后实现
+    //    EQ,        //-> '=='
+    //    NEQ,       //-> '!='
+    //    LT,        //-> '<'
+    //    GT,        //-> '>'
+    //    LE,        //-> '<='
+    //    GE,        //-> '>='*/
+    private void bool_expr() throws CompileError{
+        expect(TokenType.L_PAREN);
+        count_expr();
+        Token nameToken=next();
+        TokenType bool=nameToken.getTokenType();
+        count_expr();
+        //if与while都是为真时不跳为真时跳，但是指令的跳转位置需要分析
+        if(bool==TokenType.EQ){ //相等时为0，取反为真
+            addInstruction(new Instruction(Operation.cmpi));
+            addInstruction(new Instruction(Operation.not));
+        }else if(bool==TokenType.NEQ){//不相等时不为0，取反为真
+            addInstruction(new Instruction(Operation.cmpi));
+            addInstruction(new Instruction(Operation.not));
+        }else if(bool==TokenType.LT){//< 为真时得到-1
+            addInstruction(new Instruction(Operation.cmpi));
+            addInstruction(new Instruction(Operation.setlt));//如果 lhs < 0 则推入 1，否则 0
+        }else if(bool==TokenType.NEQ){//> 为真时得到1
+            addInstruction(new Instruction(Operation.cmpi));
+            addInstruction(new Instruction(Operation.setgt));
+        }else if(bool==TokenType.LE){//<= 为真时为-1或0，为假时为1
+            addInstruction(new Instruction(Operation.cmpi));
+            addInstruction(new Instruction(Operation.setgt));//>0时为1
+            addInstruction(new Instruction(Operation.not));//取反
+        }else if(bool==TokenType.GE){//>= 为真时为0，1，为假时为-1
+            addInstruction(new Instruction(Operation.cmpi));
+            addInstruction(new Instruction(Operation.setlt));//<0时为1
+            addInstruction(new Instruction(Operation.not));//取反
+        }else{
+            throw new Error("*/error");
+        }
+    }
+
     //*表达式->项(+/-项)*
     private void count_expr() throws CompileError{
         //operator_expr -> expr binary_operator expr

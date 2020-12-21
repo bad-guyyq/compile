@@ -19,7 +19,7 @@ public final class Analyser {
     Tokenizer tokenizer;
     ArrayList<Function> Func;
     ArrayList<String> GlobalSymbol;
-    LinkedList<Integer> ActScope;//当前的作用域
+    //LinkedList<Integer> ActScope;//当前的作用域
     //ActScope.getFirst();//当前函数下标 ActScope.size()-1;当作用域层数 ActScope.get()得到标号
     /** 当前偷看的 token */
     Token peekedToken = null;
@@ -30,28 +30,30 @@ public final class Analyser {
     //当前正在编译的函数
     Function nowFunc;
     /** 全局符号表 */
-    HashMap<String, SymbolEntry> symbolTable = new HashMap<>();
+    HashMap<String, SymbolEntry> symbolGlobalTable ;
     /** 当前block符号表*/
-    HashMap<String, SymbolEntry> now_block_symbolTable = new HashMap<>();
+    HashMap<String, SymbolEntry> now_block_symbolTable;
 
     public Analyser(Tokenizer tokenizer) {
         this.tokenizer = tokenizer;
         this.Func= new ArrayList<>();
         this.GlobalSymbol = new ArrayList<>();
-        this.ActScope = new LinkedList<>();
+        this.symbolGlobalTable = new HashMap<>();
     }
 
+    //入口
     public ArrayList<Function> analyse() throws CompileError {
         analyseProgram();
         return Func;
     }
-    //*带有analyse的函数都是高
+
+    /**程序分析*/
     private void analyseProgram() throws CompileError {
         // program -> decl_stmt* function*
         // 设置作用域，设置_start函数，定义全局变量,
-        ActScope.add(0);
-        Function nowFunc=new Function();
-        nowFunc.setFunction("_start",0,0,0);
+        //ActScope.add(0);
+        Function nowFunc = new Function();
+        nowFunc.setFunction("_start", 0, 0, 0);
         Func.add(nowFunc);
 
         analyseGlobal();
@@ -59,7 +61,8 @@ public final class Analyser {
         // 'end'
         expect(TokenType.EOF);
     }
-    //函数分析
+
+    /**函数分析*/
     private void analyseFunction() throws CompileError{
         //decl_stmt -> let_decl_stmt | const_decl_stmt
         while(true){
@@ -72,31 +75,35 @@ public final class Analyser {
     }
     private void function() throws CompileError{
         //function -> 'fn' IDENT '(' function_param_list? ')' '->' ty block_stmt
-        //将函数的VariableOffset，重置作用域
+        //将函数的VariableOffset，重置当前作用域
         if(nextIf(TokenType.Fn)!=null){
+//            if(ActScope.size()==1){
+//                ActScope.set(0,ActScope.getFirst()+1);
+//            }else{
+//                throw new Error("ActScopeFuncSize");
+//            }
             nextVariableOffset=0;
             nextParamOffset = 0;
-            int now_act=ActScope.getFirst()+1;
-            ActScope.remove();
-            ActScope.add(now_act);
-        }else{
-            return;
         }
-        //new一个函数，注意要最后才加入计数完局部变量之后才加入符号表
-        nowFunc=new Function();
-        //在这个函数的func_symbolList中初始化第一个table
-        now_block_symbolTable=new HashMap<>();
-        nowFunc.func_symbolList.add(now_block_symbolTable);
 
+        //new一个函数，注意要最后才加入计数完局部变量之后才将函数加入符号表和函数数组
+        nowFunc=new Function();
+        //压入第一个符号表
+        now_block_symbolTable=new HashMap<>();
+        nowFunc.funcSymbolStack.add(now_block_symbolTable);
+
+        //函数名
         var nameToken = expect(TokenType.IDENT);
-        String name = (String) nameToken.getValue();//函数名
+        String name = (String) nameToken.getValue();
         //函数参数
         fun_param();
         //函数返回值类型,准备放在函数变量的表中
         var typeToken = expect(TokenType.IDENT);
         String type = (String) typeToken.getValue();
 
-        block_stmt();
+        //函数块加载
+        analyse_func_block();
+
         // 加入符号表,判读全局
         SymbolEntry func=addSymbol(name, true,false, true,false, nameToken.getStartPos());
         if(!func.setType(type)){
@@ -110,9 +117,80 @@ public final class Analyser {
         }
 
     }
+
+    /**块区域初始化，设置符号表*/
+    private void analyse_func_block()throws CompileError{
+        //是函数块不用新建符号表，符号表就是function()初始化参数过了的now_block_symbolTable
+        analyse_block_stmt(true);
+    }
+    private void analyse_block_stmt(boolean isFunction)throws CompileError{
+        if(isFunction){//直接分析块
+            block_stmt();
+        }else{//不是函数，则压入并设置新的符号表
+            now_block_symbolTable = new HashMap<>();
+            nowFunc.funcSymbolStack.add(now_block_symbolTable);
+            block_stmt();
+            //块分析完后，删除符号表，到达上一个符号表
+            nowFunc.funcSymbolStack.remove();
+            now_block_symbolTable=nowFunc.funcSymbolStack.getLast();
+        }
+    }
+    private void block_stmt()throws CompileError{
+        expect(TokenType.L_BRACE);
+        while(!check(TokenType.R_BRACE)){
+            analyse_stmt();
+        }
+        expect(TokenType.R_BRACE);
+    }
+
+    /**语句分析*/
+    private void analyse_stmt()throws CompileError {
+        while(true){
+            if (check(TokenType.Let)||check(TokenType.Const)) {
+                decl_stmt();
+            }else if(check(TokenType.If)){
+                if_stmt();
+            }else if(check(TokenType.While)){
+                while_stmt();
+            }else if(check(TokenType.SEMICOLON)){
+                empty_stmt();
+            }else{
+                break;
+            }
+        }
+    }
+    private void decl_stmt()throws CompileError {
+        //decl_stmt -> let_decl_stmt | const_decl_stmt
+        while(true){
+            if (check(TokenType.Let)) {
+                let_decl_stmt();
+            }else if(check(TokenType.Const)){
+                const_decl_stmt();
+            }else{
+                return;
+            }
+        }
+    }
+    private void if_stmt()throws CompileError {
+
+    }
+    private void while_stmt()throws CompileError {
+
+    }
+    private void empty_stmt()throws CompileError {
+        next();
+    }
+
+    /**函数参数分析*/
     private void fun_param()throws CompileError{
-        //function_param_list -> function_param (',' function_param)*
-        //function_param -> 'const'? IDENT ':' ty
+        /*function_param_list -> function_param (',' function_param)*
+        function_param -> 'const'? IDENT ':' ty
+        设置作用域*/
+        /*if(ActScope.size()==1){
+            ActScope.add(0);
+        }else{
+            throw new Error("ActScopeFuncSize");
+        }*/
         expect(TokenType.L_PAREN);
         param();
         while (true) {
@@ -127,11 +205,8 @@ public final class Analyser {
             param();
         }
         expect(TokenType.R_PAREN);
+        //ActScope.remove();
     }
-    private void block_stmt()throws CompileError{
-
-    }
-    //*常量参数
     private void param() throws CompileError{
         // IDENT ':' ty
         // 变量名
@@ -155,53 +230,11 @@ public final class Analyser {
         };
     }
 
-    //*变量参数
-    private void variable_param() throws CompileError{
-        // const_decl_stmt -> 'const' IDENT ':' ty '=' expr ';'
-        // 如果下一个 token 是 const 就继续
-        if (nextIf(TokenType.Const) != null) {
-            // 变量名
-            var nameToken = expect(TokenType.IDENT);
-
-            // 加入符号表,加入时会判读全局
-            String name = (String) nameToken.getValue();
-            SymbolEntry Constant=addSymbol(name, false,true, true, false,nameToken.getStartPos());
-            // *:号
-            expect(TokenType.COLON);
-
-            //*ty 设置变量类型
-            var typeToken = expect(TokenType.IDENT);
-            String type = (String) typeToken.getValue();
-            if(!Constant.setType(type)){
-                throw new Error("TypeWrong");
-            };
-            // 常表达式  *这里之后改成analyseExpr
-            if(Constant.isGlobal){
-                addInstruction(new Instruction(Operation.globa, Constant.getStackOffset()));
-            }else{
-                addInstruction(new Instruction(Operation.loca, Constant.getStackOffset()));
-            }
-            count_expr();
-
-            // *;分号
-            expect(TokenType.SEMICOLON);
-
-            //栈顶现在为 变量地址 表达式值
-            addInstruction(new Instruction(Operation.store64));
-        }
-    }
-    //全局分析
+    /**全局变量分析*/
     private void analyseGlobal() throws CompileError{
         //decl_stmt -> let_decl_stmt | const_decl_stmt
-        while(true){
-            if (check(TokenType.Let)) {
-                let_decl_stmt();
-            }else if(check(TokenType.Const)){
-                const_decl_stmt();
-            }else{
-                return;
-            }
-        }
+        now_block_symbolTable=symbolGlobalTable;
+        decl_stmt();
     }
     //*变量
     private void let_decl_stmt() throws CompileError{
@@ -289,6 +322,8 @@ public final class Analyser {
         }
     }
 
+
+    /**运算与比较表达式*/
     /**布尔比较式,分析表示式是否为真，为假时为0，结果放在栈顶。
     //是否为浮点数之后实现
     //    EQ,        //-> '=='
@@ -328,7 +363,6 @@ public final class Analyser {
             throw new Error("*/error");
         }
     }
-
     //*表达式->项(+/-项)*
     private void count_expr() throws CompileError{
         //operator_expr -> expr binary_operator expr
@@ -443,16 +477,49 @@ public final class Analyser {
             }
         }
     }
+
+
+
+
     //工具方法
     /**函数里加指令*/
-    private void addInstruction(Instruction temp){
-        Func.get(ActScope.getFirst()).Body.add(temp);
+    private void addInstruction(Instruction temp)throws AnalyzeError{
+        nowFunc.Body.add(temp);
     }
-    //Function nowFunc
+
+    /**查找符号表*/
+    private SymbolEntry foundSymbolByName(String name)throws AnalyzeError{
+        var symbol = now_block_symbolTable.get(name);
+        //直接找到
+        if(symbol!=null){
+            return symbol;
+        }
+        //临时符号表
+        HashMap<String, SymbolEntry> tempFoundBlockSymbolTable;
+        //
+        int offSymbolTable=nowFunc.funcSymbolStack.size()-1;
+        // 当前符号表没有这个标识符,往上找
+        while(symbol == null||offSymbolTable>0) {
+            offSymbolTable--;
+            tempFoundBlockSymbolTable=nowFunc.funcSymbolStack.get(offSymbolTable);
+            symbol=tempFoundBlockSymbolTable.get(name);
+        }
+        //还没找到去全局里面找
+        if(symbol==null){
+            symbol=symbolGlobalTable.get(name);
+        }
+        return symbol;
+    }
+    /**由ActScope查找符号表在符号表序列中的下标*/
+    private int getTableOffset(LinkedList<Integer> ActScope)throws AnalyzeError{
+        //ActScope
+        int result=ActScope.get(1);
+        return 0;
+    }
     /**加载变量也就是找到变量的地址然后把变量的值压到栈顶*/
     private void loadVariable(Token nameToken) throws AnalyzeError {
         String name = (String) nameToken.getValue();/* 快填 */
-        var symbol = symbolTable.get(name);
+        var symbol = foundSymbolByName(name);
         if (symbol == null) {
             // 没有这个标识符
             throw new AnalyzeError(ErrorCode.NotDeclared, /* 当前位置 */ nameToken.getStartPos());
@@ -460,41 +527,31 @@ public final class Analyser {
             // 标识符没初始化
             throw new AnalyzeError(ErrorCode.NotInitialized, /* 当前位置 */ nameToken.getStartPos());
         }
-        if(symbol.isGlobal){
-            var offset = getOffset(name, nameToken.getStartPos());//全局变量的位置，定义时设置
+        //变量的位置
+        var offset = getOffset(name, nameToken.getStartPos());
+        if (symbol.isGlobal){
             addInstruction(new Instruction(Operation.globa, offset));
-            addInstruction(new Instruction(Operation.load64));
+        }else if(symbol.isParam){
+            addInstruction(new Instruction(Operation.arga, offset));
         }else{
-            var offset = getOffset(name, nameToken.getStartPos());//局部变量在栈中的位置
             addInstruction(new Instruction(Operation.loca, offset));
-            addInstruction(new Instruction(Operation.load64));
         }
+        addInstruction(new Instruction(Operation.load64));
     }
-    /**
-     * 获取下一个变量的栈偏移
-     */
-    private int getNextVariableOffset() {
-        return this.nextVariableOffset++;
-    }
-    private int getNextGlobalOffset() {
-        return this.nextGlobalOffset++;
-    }
-    private int getNextParamOffset() {
-        return this.nextParamOffset++;
-    }
-    /** 添加变量*/
+
+    /** 添加符号表*/
     private SymbolEntry addSymbol(String name,boolean isFunction,  boolean isConstant, boolean isInitialized,boolean ipParam, Pos curPos) throws AnalyzeError {
         //全局变量
-        if(this.ActScope.getFirst()==0||isFunction){
-            if (this.symbolTable.get(name) != null) {
+        if(now_block_symbolTable==symbolGlobalTable||isFunction){
+            if (this.symbolGlobalTable.get(name) != null) {
                 throw new AnalyzeError(ErrorCode.DuplicateDeclaration, curPos);
             } else {
                 SymbolEntry temp;
                 GlobalSymbol.add(name);
                 temp=new SymbolEntry(isFunction, isConstant, isInitialized,ipParam,getNextGlobalOffset());
                 temp.setGlobal(true);
-                temp.setActScope(this.ActScope);
-                this.symbolTable.put(name,temp);
+                //temp.setActScope(this.ActScope);
+                this.symbolGlobalTable.put(name,temp);
                 return temp;
             }
         }else{//非全局
@@ -503,7 +560,7 @@ public final class Analyser {
 
     }
     //Boolean isFunction,boolean isConstant, boolean isInitialized, boolean isParam,int stackOffset
-    /**添加一个符号，非全局，设置作用域*/
+    /**添加一个符号，非全局，设置作用域不用了，可以在函数符号表列里找*/
     private SymbolEntry addBlockSymbol(String name,boolean isFunction,  boolean isConstant,boolean isInitialized,boolean ipParam, Pos curPos) throws AnalyzeError {
         if (now_block_symbolTable.get(name) != null) {
             throw new AnalyzeError(ErrorCode.DuplicateDeclaration, curPos);
@@ -516,27 +573,27 @@ public final class Analyser {
                 offset= getNextVariableOffset();
             }
             temp=new SymbolEntry(isFunction, isConstant, isInitialized,ipParam,offset);
-            temp.setGlobal(false);
-            temp.setActScope(this.ActScope);
+            //temp.setGlobal(false);默认是false
+            //temp.setActScope(this.ActScope);
             now_block_symbolTable.put(name,temp);
             return temp;
         }
     }
-    /**
-     * 设置符号为已赋值
-     *
-     * @param name   符号名称
-     * @param curPos 当前位置（报错用）
-     * @throws AnalyzeError 如果未定义则抛异常
-     */
-    private void initializeSymbol(String name, Pos curPos) throws AnalyzeError {
-        var entry = this.symbolTable.get(name);
-        if (entry == null) {
-            throw new AnalyzeError(ErrorCode.NotDeclared, curPos);
-        } else {
-            entry.setInitialized(true);
-        }
+
+
+    /**设置下一个变量的栈偏移*/
+    private int getNextVariableOffset() {
+        return this.nextVariableOffset++;
     }
+    private int getNextGlobalOffset() {
+        return this.nextGlobalOffset++;
+    }
+    private int getNextParamOffset() {
+        return this.nextParamOffset++;
+    }
+
+
+    /**符号属性获取与设置方法*/
     /**
      * 获取变量在栈上的偏移
      *
@@ -546,7 +603,7 @@ public final class Analyser {
      * @throws AnalyzeError
      */
     private int getOffset(String name, Pos curPos) throws AnalyzeError {
-        var entry = this.symbolTable.get(name);
+        var entry = this.symbolGlobalTable.get(name);
         if (entry == null) {
             throw new AnalyzeError(ErrorCode.NotDeclared, curPos);
         } else {
@@ -562,13 +619,30 @@ public final class Analyser {
      * @throws AnalyzeError
      */
     private boolean isConstant(String name, Pos curPos) throws AnalyzeError {
-        var entry = this.symbolTable.get(name);
+        var entry = this.symbolGlobalTable.get(name);
         if (entry == null) {
             throw new AnalyzeError(ErrorCode.NotDeclared, curPos);
         } else {
             return entry.isConstant();
         }
     }
+    /**
+     * 设置符号为已赋值
+     *
+     * @param name   符号名称
+     * @param curPos 当前位置（报错用）
+     * @throws AnalyzeError 如果未定义则抛异常
+     */
+    private void initializeSymbol(String name, Pos curPos) throws AnalyzeError {
+        var entry = this.symbolGlobalTable.get(name);
+        if (entry == null) {
+            throw new AnalyzeError(ErrorCode.NotDeclared, curPos);
+        } else {
+            entry.setInitialized(true);
+        }
+    }
+
+    /**Token工具方法*/
     /**
      * 查看下一个 Token
      *

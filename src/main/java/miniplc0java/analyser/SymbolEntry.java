@@ -7,16 +7,15 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Objects;
 public class SymbolEntry {
-    boolean isConstant;//常量
-    boolean isInitialized;//是否初始化
-    boolean isFunction;//函数嘛
-    boolean isGlobal;//全局
-    boolean isParam;
-
-    int FactionId;
+    boolean isConstant=false;//常量
+    boolean isInitialized=false;//是否初始化
+    boolean isFunction=false;//函数嘛
+    boolean isGlobal=false;//全局
+    boolean isParam=false;
+    //int FactionId;
     int stackOffset;//符号在栈中排位或者全局中排位
     TokenType Type;
-    LinkedList<Integer> ActScope;//该变量的作用域
+//    LinkedList<Integer> ActScope;//该变量的作用域
 
 
     /**
@@ -25,20 +24,16 @@ public class SymbolEntry {
      * @param stackOffset
      */
     //初始化
-    public SymbolEntry(Boolean isFunction,boolean isConstant, boolean isInitialized, boolean isParam,int stackOffset) {
+    public SymbolEntry(boolean isFunction,boolean isConstant, boolean isInitialized, boolean isParam,int stackOffset) {
         this.isFunction=isFunction;
         this.isConstant = isConstant;
         this.isInitialized = isInitialized;
         this.isParam=isParam;
         this.stackOffset = stackOffset;
     }
-
     /**
      * @return the stackOffset
      */
-    public void setActScope(LinkedList<Integer> Scope){
-        this.ActScope= (LinkedList<Integer>) Scope.clone();
-    }
     public void setGlobal(boolean isGlobal){
         this.isGlobal= isGlobal;
     }

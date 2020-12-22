@@ -43,3 +43,10 @@ W
 'src/main/java/miniplc0java/replace.java,8\d\8d7047a1d698c81e9a9a3adb326ca3a777979dfe
 d
 4src/main/java/miniplc0java/instruction/Function.java,f\4\f466c743ee61236ca163036066d0e25250167554
+:
+
+hello.plc0,1\9\19f5d6d65a96067c1b4f499650ba1624d6af50ca
+d
+4src/main/java/miniplc0java/analyser/TableOffset.java,e\3\e3d9a9cea37136e76afb5cfb5197b244cf3b2a13
+Y
+)src/main/java/miniplc0java/vm/MiniVm.java,b\7\b75567bf6223a2051fb74d0b71bea18fcecbab46

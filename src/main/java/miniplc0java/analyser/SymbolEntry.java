@@ -38,16 +38,23 @@ public class SymbolEntry {
         this.isGlobal= isGlobal;
     }
     public boolean setType(String type) {
-        if(type.equals("int")){
-            this.Type=TokenType.UINT_LITERAL;
-        }else if(type.equals("double")){
-            this.Type=TokenType.DOUBLE_LITERAL;
-        }else if(isFunction&&type.equals("void")){
-            this.Type=TokenType.VOID_LITERAL;
-        }else{
+        this.Type=checkType(type);
+        if(this.Type==null||(!isFunction&&type.equals("void"))){
             return false;
+        }else{
+            return true;
         }
-        return true;
+    }
+    public static TokenType checkType(String type) {
+        if(type.equals("int")){
+            return TokenType.UINT_LITERAL;
+        }else if(type.equals("double")){
+            return TokenType.DOUBLE_LITERAL;
+        }else if(type.equals("void")){
+            return TokenType.VOID_LITERAL;
+        }else{
+            return null;
+        }
     }
     public int getStackOffset() {
         return stackOffset;

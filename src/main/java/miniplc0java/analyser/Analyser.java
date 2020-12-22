@@ -128,6 +128,7 @@ public final class Analyser {
         analyse_block_stmt(true);
     }
     private void analyse_block_stmt(boolean isFunction)throws CompileError{
+        //跳转需要记录添加指令的数量来确认off
         if(isFunction){//直接分析块
             block_stmt();
         }else{//不是函数，则压入并设置新的符号表
@@ -266,10 +267,45 @@ public final class Analyser {
     }
 
     private void if_stmt()throws CompileError {
+        boolean isElse=false;
+        if(check(TokenType.L_BRACE)){
+            isElse=true;
+        }else{
+            expect(TokenType.If);
+        }
+        int boolOff=nowFunc.Body.size();//判断开始指令位置
+        if(!isElse){//
+            bool_expr();
+        }
+        addInstruction(new Instruction(Operation.brtrue,1));//满足条件越过下一条无条件跳转指令
+        int brOff=nowFunc.Body.size();//跳出该if
+        addInstruction(new Instruction(Operation.br));//值之后根据下标改
 
+        analyse_block_stmt(false);//指令块分析
+
+        //在当前block块后加一条跳出所有if的指令
+        int backOff=nowFunc.Body.size();
+        addInstruction(new Instruction(Operation.br));//值之后根据之后所有if分析完后改
+
+        nowFunc.Body.set(brOff,new Instruction(Operation.br,backOff-brOff));//修改跳出该if
+        if(nextIf(TokenType.Else)!=null){
+            if_stmt();
+        }
+        //所有都分析完了修改跳出所有修换的值
+        int nowOff=nowFunc.Body.size()-1;
+        nowFunc.Body.set(backOff,new Instruction(Operation.br,nowOff-backOff));//修改跳出该if
     }
     private void while_stmt()throws CompileError {
-
+        expect(TokenType.While);
+        int boolOff=nowFunc.Body.size();//判断开始指令位置
+        bool_expr();
+        addInstruction(new Instruction(Operation.brtrue,1));//满足条件越过下一条无条件跳转指令
+        int brOff=nowFunc.Body.size();//跳出循环指令位
+        addInstruction(new Instruction(Operation.br));//值之后根据下标改
+        analyse_block_stmt(false);//指令块分析
+        int backoff=nowFunc.Body.size();
+        addInstruction(new Instruction(Operation.br,-(backoff-boolOff+1)));//跳回判断语句
+        nowFunc.Body.set(brOff,new Instruction(Operation.br,backoff-brOff));
     }
     private void return_stmt()throws CompileError {
         next();

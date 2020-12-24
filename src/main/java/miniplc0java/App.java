@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 import miniplc0java.analyser.Analyser;
 import miniplc0java.error.CompileError;
+import miniplc0java.instruction.Function;
 import miniplc0java.instruction.Instruction;
 import miniplc0java.tokenizer.StringIter;
 import miniplc0java.tokenizer.Token;
@@ -94,22 +95,22 @@ public class App {
                 output.println(token.toString());
             }
         //语法分析
-//        } else if (result.getBoolean("analyse")) {
-//            // analyze
-//            var analyzer = new Analyser(tokenizer);
-//            List<Instruction> instructions;
-//            try {
-//                instructions = analyzer.analyse();
-//            } catch (Exception e) {
-//                // 遇到错误不输出，直接退出
-//                System.err.println(e);
-//                System.exit(0);
-//                return;
-//            }
-//            //输出每个Instruction的tostring
-//            for (Instruction instruction : instructions) {
-//                output.println(instruction.toString());
-//            }
+        } else if (result.getBoolean("analyse")) {
+            // analyze
+            var analyzer = new Analyser(tokenizer);
+            List<Function> func;
+            try {
+                func = analyzer.analyse();
+            } catch (Exception e) {
+                // 遇到错误不输出，直接退出
+                System.err.println(e);
+                System.exit(0);
+                return;
+            }
+            //输出每个Instruction的tostring
+            for (Function funcIter : func) {
+                output.println(funcIter.toString());
+            }
         } else {
             System.err.println("Please specify either '--analyse' or '--tokenize'.");
             System.exit(3);

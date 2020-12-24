@@ -1,100 +1,116 @@
 
-k	java:S100š"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ÅŠé8òû‡áè.
-k	java:S100¤"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åíõÀ8òû‡áè.
-Y	java:S125‰"<This block of commented-out lines of code should be removed.(¤ë»½8»”ş«è.
-p	java:S100‚"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬çöùşÿÿÿÿ8òû‡áè.
-^	java:S125ß"<This block of commented-out lines of code should be removed.(öİ†‹üÿÿÿÿ8áÌä«è.
-?
-java:S1116ü"Remove this empty statement.(ôŸìúÿÿÿÿ8»”ş«è.
-p	java:S100¿"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡ƒ¤áüÿÿÿÿ8“è—«è.
-b	java:S112w"FDefine and throw a dedicated exception instead of using a generic one.(ù¼ş8÷›í©è.
-b
-java:S2583Ó"DChange this condition so that it does not always evaluate to "false"(¢‚…“8»”ş«è.
-c	java:S112Ï"FDefine and throw a dedicated exception instead of using a generic one.(ù¼ş8áÌä«è.
 g
-java:S1192w"JDefine a constant instead of duplicating this literal "TypeWrong" 4 times.(ù¼ş8—½ã¨è.
-k	java:S100¤"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯å»“8òû‡áè.
-?
-java:S1116„"Remove this empty statement.(ôŸìúÿÿÿÿ8÷›í©è.
-k	java:S100ª"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦¢•¡8ˆû—«è.
-k	java:S100ê"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£ûıì8áÌä«è.
-k	java:S100å"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±ºë8òû‡áè.
-k	java:S100¹"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–¡Ã8áÌä«è.
-p
-java:S3776ÿ"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(äİü8òû‡áè.
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ø·Øæ
-c	java:S112ù"FDefine and throw a dedicated exception instead of using a generic one.(›ÚÀ8»”ş«è.
-g
-java:S2583Í"DChange this condition so that it does not always evaluate to "false"(†™úâüÿÿÿÿ8òû‡áè.
-^
-java:S1854”";Remove this useless assignment to local variable "boolOff".(íƒ³ãşÿÿÿÿ8òû‡áè.
-R
-java:S1481ú"/Remove this unused "funcSymbol" local variable.(Úƒ¿÷ùÿÿÿÿ8òû‡áè.
-k	java:S100Ù"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø—üÿ8òû‡áè.
-p	java:S100×"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ØºÚ øÿÿÿÿ8»”ş«è.
-f
-java:S1192Õ"HDefine a constant instead of duplicating this literal "*/error" 3 times.(›ÚÀ8»”ş«è.
-j	java:S100¶"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ç®òl8»”ş«è.
-j	java:S116"ORename this field "Func" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïÃæ	8¦ÄÛç.
-s	java:S117ó"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ÂËúÿÿÿÿ8áÌä«è.
+java:S2583ß"DChange this condition so that it does not always evaluate to "false"(†™úâüÿÿÿÿ8Ç¬–úè.
 O
-java:S1481”",Remove this unused "boolOff" local variable.(íƒ³ãşÿÿÿÿ8òû‡áè.
-^	java:S125Ü"<This block of commented-out lines of code should be removed.(×Äõàùÿÿÿÿ8òû‡áè.
-^	java:S125î"<This block of commented-out lines of code should be removed.(§±Õ†ùÿÿÿÿ8»”ş«è.
-X	java:S125T"<This block of commented-out lines of code should be removed.(æıéÑ8÷›í©è.
-p	java:S100¹"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£‹¢æşÿÿÿÿ8ˆû—«è.
-b
-java:S2583¶"DChange this condition so that it does not always evaluate to "false"(ª°Â8ÿ½ÿ«è.
-X
-java:S1144Ó"5Remove this unused private "initializeSymbol" method.(»ÈîËøÿÿÿÿ8»”ş«è.
-b
-java:S2583Ã"DChange this condition so that it does not always evaluate to "false"(¢‚…“8»”ş«è.
-s	java:S116"WRename this field "GlobalSymbol" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïãÆü8³öµÑç.
-p
-java:S3776Ù"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(Ø—üÿ8òû‡áè.
-k	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ıñíÏ8ˆû—«è.
-c	java:S112û"FDefine and throw a dedicated exception instead of using a generic one.(ù¼ş8»”ş«è.
-p	java:S100˜"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ï×—¾ùÿÿÿÿ8ñŒÔªè.
-
-java:S1319/"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Ÿœˆ©8¢ĞÅƒè.
-Y	java:S125¡"<This block of commented-out lines of code should be removed.(¤ë»½8»”ş«è.
-k	java:S100¶"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(şİÆ¿8ˆû—«è.
-c	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Å‰ô8òû‡áè.
-p	java:S100¨"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŸÒ÷¶üÿÿÿÿ8òû‡áè.
-W
-java:S11179";Rename "nowFunc" which hides the field declared at line 33.(†ÔE8¢ĞÅƒè.
-Y	java:S125Û"<This block of commented-out lines of code should be removed.(ÿ’Â·8»”ş«è.
-j	java:S100­"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—èñ
+java:S1481À"1Remove this unused "stdlibSymbol" local variable.(Ü´ïÚ8Õí€ûè.
+j	java:S100¯"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—èñ
 8“è—«è.
-h	java:S112é"FDefine and throw a dedicated exception instead of using a generic one.(°Ç¥ûüÿÿÿÿ8òû‡áè.
-h	java:S112¾"FDefine and throw a dedicated exception instead of using a generic one.( ‡˜‹ûÿÿÿÿ8òû‡áè.
-h	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(°Ç¥ûüÿÿÿÿ8òû‡áè.
-N
-java:S1172¤"0Remove this unused method parameter "nameToken".(¯å»“8òû‡áè.
-¨
-java:S1862Ì"„This branch can not be reached because the condition duplicates a previous condition in the same sequence of "if/else if" statements(éÑ üûÿÿÿÿ8»”ş«è.
-k	java:S100Ä"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹ıšî8òû‡áè.
-c	java:S112ƒ"FDefine and throw a dedicated exception instead of using a generic one.(ù¼ş8»”ş«è.
-k	java:S100ÿ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(äİü8òû‡áè.
-k	java:S100õ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÒŞÄ¸8»”ş«è.
-c	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(›ÚÀ8»”ş«è.
-h	java:S112Î"FDefine and throw a dedicated exception instead of using a generic one.(Ùší ùÿÿÿÿ8½©ƒ¬è.
-X	java:S1258"<This block of commented-out lines of code should be removed.(¤”ÚÏ8æîÎ§è.
-j	java:S100~"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…È¹Ñ8¬æì©è.
-h	java:S112–"FDefine and throw a dedicated exception instead of using a generic one.(„ó‘îûÿÿÿÿ8òû‡áè.
+\
+java:S1854Š">Remove this useless assignment to local variable "nameSymbol".(İœâÁ8Ä¡Âúè.
+
+java:S13191"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Ÿœˆ©8¢ĞÅƒè.
+k	java:S100¬"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦¢•¡8ˆû—«è.
+c	java:S112Ñ"FDefine and throw a dedicated exception instead of using a generic one.(ù¼ş8áÌä«è.
+s	java:S117õ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ÂËúÿÿÿÿ8áÌä«è.
+|	java:S116'"`Rename this field "now_block_symbolTable" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÈŸë8éçãƒè.
+k	java:S100Ö"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹ıšî8˜Àíùè.
+Y	java:S125"<This block of commented-out lines of code should be removed.(úÆ³ã8œŠºúè.
+k	java:S100€"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…È¹Ñ8¬æì©è.
+h	java:S112à"FDefine and throw a dedicated exception instead of using a generic one.(Ùší ùÿÿÿÿ8˜Àíùè.
+k	java:S100‘"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğƒú”8¬æì©è.
+^
+java:S1854–";Remove this useless assignment to local variable "boolOff".(íƒ³ãşÿÿÿÿ8òû‡áè.
+s	java:S116"WRename this field "GlobalSymbol" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïãÆü8³öµÑç.
+h	java:S112‚"FDefine and throw a dedicated exception instead of using a generic one.(Ó”äøÿÿÿÿ8˜Àíùè.
 >
-java:S1116x"Remove this empty statement.(ôŸìúÿÿÿÿ8áÌä«è.
-k	java:S100¼"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ä®ÿİ8ˆû—«è.
-s	java:S117û"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÓÄÁïıÿÿÿÿ8»”ş«è.
-9
-java:S3626Ì"Remove this redundant jump.(ûÁİ…8òû‡áè.
-c	java:S112Õ"FDefine and throw a dedicated exception instead of using a generic one.(›ÚÀ8»”ş«è.
-n	java:S117Í"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¨¯œ†8»”ş«è.
-h	java:S112ğ"FDefine and throw a dedicated exception instead of using a generic one.(Ó”äøÿÿÿÿ8òû‡áè.
-a
-java:S1854ú">Remove this useless assignment to local variable "funcSymbol".(Úƒ¿÷ùÿÿÿÿ8òû‡áè.
+java:S1116z"Remove this empty statement.(ôŸìúÿÿÿÿ8áÌä«è.
+b	java:S112y"FDefine and throw a dedicated exception instead of using a generic one.(ù¼ş8÷›í©è.
+k	java:S100÷"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±ºë8˜Àíùè.
+g
+java:S1192y"JDefine a constant instead of duplicating this literal "TypeWrong" 4 times.(ù¼ş8—½ã¨è.
+p	java:S100„"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬çöùşÿÿÿÿ8òû‡áè.
+^	java:S125á"<This block of commented-out lines of code should be removed.(öİ†‹üÿÿÿÿ8áÌä«è.
+k	java:S100ì"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£ûıì8áÌä«è.
+c	java:S112ı"FDefine and throw a dedicated exception instead of using a generic one.(ù¼ş8»”ş«è.
+j	java:S116"ORename this field "Func" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïÃæ	8¦ÄÛç.
+W
+java:S1117;";Rename "nowFunc" which hides the field declared at line 35.(†ÔE8¢ĞÅƒè.
+h	java:S112¾"FDefine and throw a dedicated exception instead of using a generic one.(Á”øÿÿÿÿ8…ÖÃùè.
+k	java:S100Î"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ä®ÿİ8˜Àíùè.
+p	java:S100“"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ì±Ûôıÿÿÿÿ8¿ãÌúè.
+k	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ıñíÏ8ˆû—«è.
+?
+java:S1116ş"Remove this empty statement.(ôŸìúÿÿÿÿ8»”ş«è.
+X	java:S125:"<This block of commented-out lines of code should be removed.(¤”ÚÏ8æîÎ§è.
+O
+java:S1481–",Remove this unused "boolOff" local variable.(íƒ³ãşÿÿÿÿ8òû‡áè.
+h	java:S112Ä"FDefine and throw a dedicated exception instead of using a generic one.(å‚Ş¦øÿÿÿÿ8¢¶éùè.
+M
+java:S1481Š"/Remove this unused "nameSymbol" local variable.(İœâÁ8Ä¡Âúè.
+k	java:S100½"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø¨ü©8›ûñúè.
+k	java:S100»"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–¡Ã8áÌä«è.
+U
+java:S1128"3Remove this unused import 'java.lang.reflect.Type'.(‰ûÕñıÿÿÿÿ8ó¬¸ùè.
+c	java:S112Ó"FDefine and throw a dedicated exception instead of using a generic one.(Å‰ô8 ªÍûè.
+^	java:S125¼"<This block of commented-out lines of code should be removed.(ç¹½öüÿÿÿÿ8ÁÕöè.
+p	java:S100š"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ï×—¾ùÿÿÿÿ8ñŒÔªè.
+^
+java:S1854À"@Remove this useless assignment to local variable "stdlibSymbol".(Ü´ïÚ8›ûñúè.
+k	java:S100¸"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(şİÆ¿8ˆû—«è.
+n	java:S117Ï"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¨¯œ†8»”ş«è.
+p	java:S100Ë"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£‹¢æşÿÿÿÿ8˜Àíùè.
+^	java:S125î"<This block of commented-out lines of code should be removed.(×Äõàùÿÿÿÿ8˜Àíùè.
+p	java:S100Ì"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œ¦£üÿÿÿÿ8›ûñúè.
+X	java:S125V"<This block of commented-out lines of code should be removed.(æıéÑ8÷›í©è.
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ø·Øæ
+p	java:S100Ñ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡ƒ¤áüÿÿÿÿ8˜Àíùè.
+f
+java:S1192½"HDefine a constant instead of duplicating this literal "*/error" 3 times.(›ÚÀ8õ½Íûè.
+¨
+java:S1862´"„This branch can not be reached because the condition duplicates a previous condition in the same sequence of "if/else if" statements(éÑ üûÿÿÿÿ8õ½Íûè.
+h	java:S112ı"FDefine and throw a dedicated exception instead of using a generic one.(„ó‘îûÿÿÿÿ8õ½Íûè.
+c	java:S112†"FDefine and throw a dedicated exception instead of using a generic one.(Å‰ô8õ½Íûè.
+h	java:S112¦"FDefine and throw a dedicated exception instead of using a generic one.( ‡˜‹ûÿÿÿÿ8õ½Íûè.
+c	java:S112½"FDefine and throw a dedicated exception instead of using a generic one.(›ÚÀ8õ½Íûè.
+h	java:S112Ñ"FDefine and throw a dedicated exception instead of using a generic one.(°Ç¥ûüÿÿÿÿ8õ½Íûè.
+c	java:S112á"FDefine and throw a dedicated exception instead of using a generic one.(›ÚÀ8õ½Íûè.
+h	java:S112÷"FDefine and throw a dedicated exception instead of using a generic one.(°Ç¥ûüÿÿÿÿ8õ½Íûè.
+c	java:S112†"FDefine and throw a dedicated exception instead of using a generic one.(›ÚÀ8õ½Íûè.
+c	java:S112ë"FDefine and throw a dedicated exception instead of using a generic one.(ù¼ş8õ½Íûè.
+s	java:S117ã"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÓÄÁïıÿÿÿÿ8õ½Íûè.
 b
-java:S2583ê"DChange this condition so that it does not always evaluate to "false"(¢‚…“8òû‡áè.
-|	java:S116%"`Rename this field "now_block_symbolTable" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÈŸë8éçãƒè.
-k	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğƒú”8¬æì©è.
-k	java:S100…"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è”½ä8òû‡áè.
+java:S2583³"DChange this condition so that it does not always evaluate to "false"(ª°Â8õ½Íûè.
+b
+java:S2583Ğ"DChange this condition so that it does not always evaluate to "false"(¢‚…“8õ½Íûè.
+b
+java:S2583ç"DChange this condition so that it does not always evaluate to "false"(¢‚…“8õ½Íûè.
+b
+java:S2583À"DChange this condition so that it does not always evaluate to "false"(¢‚…“8õ½Íûè.
+k	java:S100Û"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÒŞÄ¸8õ½Íûè.
+a
+java:S1854à">Remove this useless assignment to local variable "funcSymbol".(Úƒ¿÷ùÿÿÿÿ8õ½Íûè.
+k	java:S100ë"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è”½ä8õ½Íûè.
+k	java:S100‚"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ÅŠé8õ½Íûè.
+k	java:S100Œ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯å»“8õ½Íûè.
+N
+java:S1172Œ"0Remove this unused method parameter "nameToken".(¯å»“8õ½Íûè.
+p	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŸÒ÷¶üÿÿÿÿ8õ½Íûè.
+j	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ç®òl8õ½Íûè.
+k	java:S100Á"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø—üÿ8õ½Íûè.
+p
+java:S3776Á"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(Ø—üÿ8õ½Íûè.
+k	java:S100ç"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(äİü8õ½Íûè.
+p
+java:S3776ç"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(äİü8õ½Íûè.
+k	java:S100Œ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åíõÀ8õ½Íûè.
+p	java:S100¿"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ØºÚ øÿÿÿÿ8õ½Íûè.
+Y	java:S125Ã"<This block of commented-out lines of code should be removed.(ÿ’Â·8õ½Íûè.
+^	java:S125Ö"<This block of commented-out lines of code should be removed.(§±Õ†ùÿÿÿÿ8õ½Íûè.
+?
+java:S1116ì"Remove this empty statement.(ôŸìúÿÿÿÿ8õ½Íûè.
+Y	java:S125†"<This block of commented-out lines of code should be removed.(¤ë»½8õ½Íûè.
+Y	java:S125"<This block of commented-out lines of code should be removed.(¤ë»½8õ½Íûè.
+R
+java:S1481à"/Remove this unused "funcSymbol" local variable.(Úƒ¿÷ùÿÿÿÿ8õ½Íûè.
+X
+java:S1144Ğ"5Remove this unused private "initializeSymbol" method.(»ÈîËøÿÿÿÿ8õ½Íûè.

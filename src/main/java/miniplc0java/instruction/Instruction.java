@@ -117,7 +117,7 @@ public class Instruction<T> {
                 return String.format("%s %s", this.opt, this.x);
             case panic:
             default:
-                return "ILL";
+                return "panic";
         }
     }
 }

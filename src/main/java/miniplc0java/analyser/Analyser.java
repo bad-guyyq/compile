@@ -13,12 +13,14 @@ import miniplc0java.tokenizer.TokenType;
 import miniplc0java.tokenizer.Tokenizer;
 import miniplc0java.util.Pos;
 
+import java.lang.reflect.Type;
 import java.util.*;
 
 public final class Analyser {
     Tokenizer tokenizer;
     ArrayList<Function> Func;
     ArrayList<String> GlobalSymbol;
+    ArrayList<Function> stdlibFunc;
     //LinkedList<Integer> ActScope;//当前的作用域
     //ActScope.getFirst();//当前函数下标 ActScope.size()-1;当作用域层数 ActScope.get()得到标号
     /** 当前偷看的 token */
@@ -40,9 +42,9 @@ public final class Analyser {
         this.tokenizer = tokenizer;
         this.Func= new ArrayList<>();
         this.GlobalSymbol = new ArrayList<>();
+        this.stdlibFunc=new ArrayList<>();
         this.symbolGlobalTable = new HashMap<>();
     }
-
     //入口
     public ArrayList<Function> analyse() throws CompileError {
         analyseProgram();
@@ -309,6 +311,22 @@ public final class Analyser {
     }
     private void return_stmt()throws CompileError {
         next();
+        Token nameToken=next();
+        SymbolEntry funSymbol=foundSymbolByName(nowFunc.fucName);
+        if(nameToken.getTokenType()==TokenType.SEMICOLON){//return;
+            if(funSymbol.Type!=TokenType.VOID_LITERAL){
+                throw new Error("noRetValue");
+            }
+        }else {
+            addInstruction(new Instruction(Operation.arga,0));//返回值栈地址
+            TokenType retType=count_expr();//返回值计算
+            if(!retType.equals(funSymbol.Type)){
+                throw new Error("retTypeWrong");
+            }else{
+                addInstruction(new Instruction(Operation.store64));//返回值存储
+            }
+        }
+        addInstruction(new Instruction(Operation.ret));//返回
     }
     private void empty_stmt()throws CompileError {
         next();
@@ -328,8 +346,8 @@ public final class Analyser {
             String name = (String) nameToken.getValue();
             SymbolEntry nameSymbol=foundSymbolByName(name);
             //标准函数否
-            if(stdlib(name)){
-                return;
+            if(isStdlib(name)){
+                stdlib();
             }else if(nameSymbol==null){
                 throw new Error("foundSymbolByNameFalse");
             }else if(nameSymbol.isFunction){
@@ -369,6 +387,90 @@ public final class Analyser {
         }
     }
 
+    /**标准函数调用,调用成功返回true*/
+    private void stdlib()throws CompileError{
+        var nameToken = next();
+        String funcName = (String) nameToken.getValue();
+        SymbolEntry nameSymbol=foundSymbolByName(funcName);
+        //先看全局符号表里有没有加上该标准函数
+        if(symbolGlobalTable.get(funcName)==null){//没有则加入全局中
+            GlobalSymbol.add(funcName);
+            add_stdlib(funcName);
+        }
+        //SymbolEntry funcSymbol=this.symbolGlobalTable.get(funcName);
+        call_stdlib(funcName);
+    }
+    private Function add_stdlib(String stdlibName)throws CompileError {
+        Function retFunc=new Function();
+        SymbolEntry temp;
+        temp=new SymbolEntry(true, true, false,false,getNextGlobalOffset());
+        temp.setGlobal(true);
+        switch (stdlibName){
+            case "getint" :
+                temp.setType("int");
+                retFunc.setFunction(stdlibName,0,1);
+                break;
+            case "getdouble" :
+                temp.setType("double");
+                retFunc.setFunction(stdlibName,0,1);
+                break;
+            case "getchar" :
+                temp.setType("char");
+                retFunc.setFunction(stdlibName,0,1);
+                break;
+            case "putint" :
+                retFunc.setFunction(stdlibName,1,0);
+                retFunc.paramType.add(TokenType.UINT_LITERAL);
+                break;
+            case "putdouble" :
+                retFunc.setFunction(stdlibName,0,1);
+                break;
+            case "putchar" :
+                retFunc.setFunction(stdlibName,1,0);
+                retFunc.paramType.add(TokenType.CHAR_LITERAL);
+                break;
+            case "putstr" :
+                retFunc.setFunction(stdlibName,1,0);
+                retFunc.paramType.add(TokenType.STRING_LITERAL);
+                break;
+            case "putln" :
+                retFunc.setFunction(stdlibName,0,0);
+                break;
+            default:
+                return null;
+        }
+        this.symbolGlobalTable.put(stdlibName,temp);
+        return retFunc;
+    }
+    private void call_stdlib(String name)throws CompileError {
+        //call_expr -> IDENT '(' call_param_list? ')'
+        //会调用call说明func一定在符号表中所以这里就不用检查了
+        SymbolEntry stdlibSymbol=foundSymbolByName(name);
+        int funcOff=foundStdlibOffByName(name);
+        Function callFunc=stdlibFunc.get(funcOff);
+        //设置返回值栈
+        if(callFunc.retSlots!=0){
+            addInstruction(new Instruction(Operation.stackalloc,callFunc.retSlots));
+        }
+        call_stdlib_list(funcOff);
+        int stdlib=foundGlobalByName(name);
+        //标准函数用callname
+        addInstruction(new Instruction(Operation.callname,stdlib));
+    }
+    private void call_stdlib_list(int funcOff)throws CompileError{
+        /**call_param_list -> expr (',' expr)*/
+        expect(TokenType.L_PAREN);
+        if(stdlibFunc.get(funcOff).paramSlots==1){
+            TokenType paramType=count_expr();
+            //参数类型要一致
+            if(!Func.get(funcOff).paramType.get(0).equals(paramType)){
+                throw new Error("paramTypeWrong");
+            }
+        }
+        expect(TokenType.R_PAREN);
+    }
+
+
     /**调用函数*/
     private void call_expr()throws CompileError {
         //call_expr -> IDENT '(' call_param_list? ')'
@@ -389,21 +491,23 @@ public final class Analyser {
     private void call_param_list(int funcOff)throws CompileError{
         /**call_param_list -> expr (',' expr)*/
         expect(TokenType.L_PAREN);
-        int paramOff=0;
-        call_param(funcOff,paramOff++);
-        while (true) {
-            // 参数名,
-            var op = peek();
-            //没有逗号隔开
-            if (op.getTokenType() != TokenType.COMMA) {
-                break;
-            }
-            // 运算符
-            next();
+        if(Func.get(funcOff).paramType.size()!=0){
+            int paramOff=0;
             call_param(funcOff,paramOff++);
-        }
-        if(paramOff!=Func.get(funcOff).paramType.size()){
-            throw new Error("paramNumberWrong");
+            while (true) {
+                // 参数名,
+                var op = peek();
+                //没有逗号隔开
+                if (op.getTokenType() != TokenType.COMMA) {
+                    break;
+                }
+                // 运算符
+                next();
+                call_param(funcOff,paramOff++);
+            }
+            if(paramOff!=Func.get(funcOff).paramType.size()){
+                throw new Error("paramNumberWrong");
+            }
         }
         expect(TokenType.R_PAREN);
     }
@@ -661,7 +765,7 @@ public final class Analyser {
         nowFunc.Body.add(temp);
     }
     /**是否是默认函数，是的话处理返回true，不是直接返回false*/
-    private boolean stdlib(String name)throws AnalyzeError{
+    private boolean isStdlib(String name)throws AnalyzeError{
         switch (name){
             case "getint" :
             case "getdouble" :
@@ -681,6 +785,27 @@ public final class Analyser {
         int off=0;
         while(off<Func.size()){
             if(Func.get(off++).fucName.equals(funcName)){
+                return off-1;
+            }
+        }
+        return -1;
+    }
+    /**标准函数名找函数下标*/
+    private int foundStdlibOffByName(String funcName){
+        int off=0;
+        while(off<stdlibFunc.size()){
+            if(stdlibFunc.get(off++).fucName.equals(funcName)){
+                return off-1;
+            }
+        }
+        return -1;
+    }
+
+    /**全局找下标*/
+    private int foundGlobalByName(String name){
+        int off=0;
+        while(off<GlobalSymbol.size()){
+            if(GlobalSymbol.get(off++).equals(name)){
                 return off-1;
             }
         }
@@ -925,6 +1050,28 @@ public final class Analyser {
         } else {
             throw new ExpectedTokenError(tt, token);
         }
+    }
+
+    //语法分析输出
+    public String toAnalyserString() {
+        String output=new String();
+        for(int i=0;i<GlobalSymbol.size();i++){
+            String global=GlobalSymbol.get(i);
+            output.format("static: ");
+            for(int j=0;j<global.length();j++){
+                output.format("%d ",(int)global.charAt(j));
+            }
+            output.format("('%s')\n",global);
+        }
+        Iterator<Function> it = Func.iterator();
+        Function funIter=it.next();
+        output.format("fn [%d] %d %d -> %d {",foundGlobalByName(funIter.fucName),funIter.locSlots,funIter.paramSlots,funIter.retSlots);
+        while(it.hasNext()){
+             funIter=it.next();
+             output.format(funIter.toString());
+        }
+        String.format("}\n");
+        return output;
     }
 
 }

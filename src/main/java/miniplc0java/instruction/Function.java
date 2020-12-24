@@ -5,6 +5,7 @@ import miniplc0java.tokenizer.TokenType;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 //fn [7] 0 0 -> 0
@@ -27,5 +28,14 @@ public class Function {
     }
     public void setlocSlots(int locSlots){
         this.locSlots=locSlots;
+    }
+    public String toString() {
+        String output=new String();
+        Iterator<Instruction> it = Body.iterator();
+        for(int i=0;i<Body.size();i++){
+            output.format("    %d: ",i);
+            output.format("it.next().toString()\n");
+        }
+        return output;
     }
 }

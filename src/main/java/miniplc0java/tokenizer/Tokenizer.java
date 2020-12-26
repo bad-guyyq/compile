@@ -245,17 +245,17 @@ public class Tokenizer {
 
             case '{':
                 // 填入返回语句
-                return new Token(TokenType.L_BRACE, '(', it.previousPos(), it.currentPos());
+                return new Token(TokenType.L_BRACE, '{', it.previousPos(), it.currentPos());
             //throw new Error("Not implemented");
 
             case '}':
                 // 填入返回语句
-                return new Token(TokenType.R_BRACE, ')', it.previousPos(), it.currentPos());
+                return new Token(TokenType.R_BRACE, '}', it.previousPos(), it.currentPos());
             //throw new Error("Not implemented");
 
             case ',':
                 // 填入返回语句
-                return new Token(TokenType.COMMA, ';', it.previousPos(), it.currentPos());
+                return new Token(TokenType.COMMA, ':', it.previousPos(), it.currentPos());
             //throw new Error("Not implemented");
 
             case ':':

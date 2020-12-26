@@ -1,6 +1,8 @@
-begin
-    const a = 1;
-    var b=a;
-    var c=a+b+(b+2);
-    print(b);
-end
+let i: int = 0;
+let j: int;
+fn main() -> int {
+    let i: int = 0;
+    let j: int;
+    j=i;
+    return 0;
+}

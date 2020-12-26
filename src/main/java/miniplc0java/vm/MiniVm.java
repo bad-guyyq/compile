@@ -49,52 +49,52 @@ public class MiniVm {
 
     private void RunStep(Instruction inst) {
         switch (inst.getOpt()) {
-            case ADD: {
-                var a = pop();
-                var b = pop();
-                push(a + b);
-            }
-                break;
-            case DIV: {
-                var b = pop();
-                var a = pop();
-                push(a / b);
-            }
-                break;
-            case ILL: {
-                throw new Error("Illegal instruction");
-            }
-            case LIT: {
-                push(inst.getX());
-            }
-                break;
-            case LOD: {
-                var x = stack.get(inst.getX());
-                push(x);
-            }
-                break;
-            case MUL: {
-                var b = pop();
-                var a = pop();
-                push(a * b);
-            }
-                break;
-            case STO: {
-                var x = pop();
-                stack.set(inst.getX(), x);
-            }
-                break;
-            case SUB: {
-                var b = pop();
-                var a = pop();
-                push(a - b);
-            }
-                break;
-            case WRT: {
-                var b = pop();
-                out.printf("%d\n", b);
-            }
-                break;
+//            case addf: {
+//                var a = pop();
+//                var b = pop();
+//                push(a + b);
+//            }
+//                break;
+//            case divf: {
+//                var b = pop();
+//                var a = pop();
+//                push(a / b);
+//            }
+//                break;
+//            case : {
+//                throw new Error("Illegal instruction");
+//            }
+//            case LIT: {
+//                push(inst.getX());
+//            }
+//                break;
+//            case LOD: {
+//                var x = stack.get(inst.getX());
+//                push(x);
+//            }
+//                break;
+//            case MUL: {
+//                var b = pop();
+//                var a = pop();
+//                push(a * b);
+//            }
+//                break;
+//            case STO: {
+//                var x = pop();
+//                stack.set(inst.getX(), x);
+//            }
+//                break;
+//            case SUB: {
+//                var b = pop();
+//                var a = pop();
+//                push(a - b);
+//            }
+//                break;
+//            case WRT: {
+//                var b = pop();
+//                out.printf("%d\n", b);
+//            }
+//                break;
             default:
                 break;
 

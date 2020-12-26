@@ -18,24 +18,26 @@ public class Function {
     public ArrayList<TokenType> paramType;
     public LinkedList<HashMap<String, SymbolEntry>> funcSymbolStack;
     public ArrayList<Instruction> Body;
-    public Function(){this.Body=new ArrayList<>();}
+    public Function(){
+        this.Body=new ArrayList<>();
+        this.funcSymbolStack=new LinkedList<>();
+        this.paramType=new ArrayList<>();
+    }
     public void setFunction(String fucName,int paramSlots, int retSlots){
         this.fucName=fucName;
         this.retSlots=retSlots;
         this.paramSlots=paramSlots;
-        this.Body=new ArrayList<>();
-        this.paramType=new ArrayList<>();
     }
     public void setlocSlots(int locSlots){
         this.locSlots=locSlots;
     }
     public String toString() {
-        String output=new String();
+        StringBuffer output=new StringBuffer();
         Iterator<Instruction> it = Body.iterator();
         for(int i=0;i<Body.size();i++){
-            output.format("    %d: ",i);
-            output.format("it.next().toString()\n");
+            output.append(String.format("    %d: ",i));
+            output.append(String.format(it.next().toString()+"\n"));
         }
-        return output;
+        return output.toString();
     }
 }

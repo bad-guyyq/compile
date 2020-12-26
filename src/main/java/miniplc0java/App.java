@@ -97,20 +97,18 @@ public class App {
         //语法分析
         } else if (result.getBoolean("analyse")) {
             // analyze
-            var analyzer = new Analyser(tokenizer);
+            Analyser analyzer = new Analyser(tokenizer);
             List<Function> func;
             try {
                 func = analyzer.analyse();
             } catch (Exception e) {
-                // 遇到错误不输出，直接退出
+                // 遇到错误输出，直接退出
                 System.err.println(e);
                 System.exit(0);
                 return;
             }
             //输出每个Instruction的tostring
-            for (Function funcIter : func) {
-                output.println(funcIter.toString());
-            }
+            output.println(analyzer.toAnalyserString());
         } else {
             System.err.println("Please specify either '--analyse' or '--tokenize'.");
             System.exit(3);

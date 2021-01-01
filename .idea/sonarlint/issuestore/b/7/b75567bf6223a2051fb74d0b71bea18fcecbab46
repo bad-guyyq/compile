@@ -1,37 +1,25 @@
 
-D
-java:S3740
-"/Provide the parametrized type for this generic.(šìŒ%
-J
-java:S3740"/Provide the parametrized type for this generic.(Ñ¥Šşÿÿÿÿ
-E
-java:S3740"/Provide the parametrized type for this generic.(äÿê„
-J
-java:S37402"/Provide the parametrized type for this generic.(Ã§Å¨ÿÿÿÿÿ
-C
-java:S11994"-Extract this nested code block into a method.(ÛÌ¿“
-C
-java:S1199:"-Extract this nested code block into a method.(ùÕÛ”
-C
-java:S1199@"-Extract this nested code block into a method.(ŸŒš·
-H
-java:S1199C"-Extract this nested code block into a method.(¾ı¤Âÿÿÿÿÿ
-H
-java:S1199G"-Extract this nested code block into a method.(ËÏòâşÿÿÿÿ
-H
-java:S1199L"-Extract this nested code block into a method.(¸§—Çşÿÿÿÿ
-C
-java:S1199R"-Extract this nested code block into a method.(Ó“Æó
-C
-java:S1199W"-Extract this nested code block into a method.(±À””
-H
-java:S1199]"-Extract this nested code block into a method.(Ø”³şÿÿÿÿ
-[	java:S112A"FDefine and throw a dedicated exception instead of using a generic one.(›ë¡è
 t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(“à’«úÿÿÿÿ
-g
-java:S1450"QRemove the "ip" field and declare it as a local variable in the relevant methods.(¨Æ
-S	java:S106"9Replace this use of System.out or System.err by a logger.(‰ïışÿÿÿÿ
-h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙøÈÅúÿÿÿÿ
-h	java:S1002"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ã§Å¨ÿÿÿÿÿ
-f
-java:S3457_"Q%n should be used in place of \n to produce the platform-specific line separator.(óå”%
+h
+java:S13013"KReplace this "switch" statement by "if" statements to increase readability.(ßŞ¿Ò8Èğ•òé.
+K
+java:S3740
+"/Provide the parametrized type for this generic.(šìŒ%8Èğ•òé.
+Q
+java:S3740"/Provide the parametrized type for this generic.(Ñ¥Šşÿÿÿÿ8Èğ•òé.
+L
+java:S3740"/Provide the parametrized type for this generic.(äÿê„8Èğ•òé.
+Q
+java:S37402"/Provide the parametrized type for this generic.(Ã§Å¨ÿÿÿÿÿ8Èğ•òé.
+n
+java:S1450"QRemove the "ip" field and declare it as a local variable in the relevant methods.(¨Æ8Èğ•òé.
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(‰ïışÿÿÿÿ8Èğ•òé.
+o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙøÈÅúÿÿÿÿ8Èğ•òé.
+o	java:S1002"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ã§Å¨ÿÿÿÿÿ8Èğ•òé.
+]	java:S1254"<This block of commented-out lines of code should be removed.(ÀÍçÿÿÿÿÿ8Èğ•òé.
+I
+java:S1068"'Remove this unused "out" private field.(Ñ…ˆ”şÿÿÿÿ8Èğ•òé.
+E
+java:S1144("(Remove this unused private "pop" method.(ûÅİ¯8Èğ•òé.
+K
+java:S1144.")Remove this unused private "push" method.(—Ğ¬³şÿÿÿÿ8Èğ•òé.

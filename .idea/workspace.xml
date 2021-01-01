@@ -23,18 +23,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="928a3dcc-1a14-42e3-8267-84d95bcf7aa2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/4/042b0310dffaf0ac227e1dc009c7381fbad87f2a" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/4/042b0310dffaf0ac227e1dc009c7381fbad87f2a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/8/1832b328c12bcf4b15b4c8722c220cf86cc9d206" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/8/1832b328c12bcf4b15b4c8722c220cf86cc9d206" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/e/1e36c8db97ab319d07447d655386bebf44bf6ac3" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/e/1e36c8db97ab319d07447d655386bebf44bf6ac3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/d/2d6bac3db3f8ae3080d416ae7e04c581fb572a85" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/d/2d6bac3db3f8ae3080d416ae7e04c581fb572a85" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/5/35e88f90da10292210bd7e269a815acb25e59d2c" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/5/35e88f90da10292210bd7e269a815acb25e59d2c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/446270f14be36c63796971ecd445afb85bdb019c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/c/6cfe69d7cd91ba3e15d2f73a148ca4fb06ab3769" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/3/735fd562fa6ffd8469f1f7ad1964ae17729e7aa5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/a/9a890da2b57beed2172cf8d1b514e053dd7e922e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/a/9a890da2b57beed2172cf8d1b514e053dd7e922e" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/7/b75567bf6223a2051fb74d0b71bea18fcecbab46" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/7/b75567bf6223a2051fb74d0b71bea18fcecbab46" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/d/bd34133d6d7f785c7cb80e87fc511257a173dae8" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/3/e3d9a9cea37136e76afb5cfb5197b244cf3b2a13" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/3/e3d9a9cea37136e76afb5cfb5197b244cf3b2a13" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/4/f466c743ee61236ca163036066d0e25250167554" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/4/f466c743ee61236ca163036066d0e25250167554" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/7/f76cd5f641ee4b753e73ffb1c77371fd2478f4f2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/9/f969e3e7fcd01db6c6bf2abfe2a3e3e07011c29e" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/9/f969e3e7fcd01db6c6bf2abfe2a3e3e07011c29e" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/3.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/4.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/5.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/hello.plc0" beforeDir="false" afterPath="$PROJECT_DIR$/hello.plc0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output_l.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output_t.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/miniplc0java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miniplc0java/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/miniplc0java/analyser/Analyser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miniplc0java/analyser/Analyser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/miniplc0java/instruction/Function.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miniplc0java/instruction/Function.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/miniplc0java/tokenizer/Tokenizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miniplc0java/tokenizer/Tokenizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/miniplc0java/vm/MiniVm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/miniplc0java/vm/MiniVm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/miniplc0java/AnalyserTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/miniplc0java/AnalyserTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/miniplc0java/MiniVmTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/miniplc0java/MiniVmTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +98,33 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.AnalyserTest">
+    <configuration name="AnalyserTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="miniplc0java.AnalyserTest" />
+      <module name="miniplc0java.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="miniplc0java.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="miniplc0java.App" />
+      <module name="miniplc0java.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="miniplc0java.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Temp_test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="miniplc0java.tokenizer.Temp_test" />
       <module name="miniplc0java.main" />
@@ -101,15 +138,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -290,6 +325,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.AnalyserTest" />
+        <item itemvalue="Application.App" />
         <item itemvalue="Application.Temp_test" />
       </list>
     </recent_temporary>
@@ -317,7 +354,9 @@
       <workItem from="1608668791896" duration="586000" />
       <workItem from="1608713425377" duration="10680000" />
       <workItem from="1608793719981" duration="10146000" />
-      <workItem from="1608972849729" duration="2326000" />
+      <workItem from="1608972849729" duration="8039000" />
+      <workItem from="1609465714237" duration="1530000" />
+      <workItem from="1609470763758" duration="10709000" />
     </task>
     <servers />
   </component>
@@ -349,38 +388,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="849" y="335" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1608642283847" />
-    <state width="903" height="258" key="GridCell.Tab.0.bottom" timestamp="1606959487924">
+    <state width="382" height="591" key="GridCell.Tab.0.bottom" timestamp="1609489488668">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="903" height="258" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606959487924" />
-    <state width="903" height="258" key="GridCell.Tab.0.center" timestamp="1606959487924">
+    <state width="382" height="591" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609489488668" />
+    <state width="382" height="591" key="GridCell.Tab.0.center" timestamp="1609489488668">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="903" height="258" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1606959487924" />
-    <state width="903" height="258" key="GridCell.Tab.0.left" timestamp="1606959487923">
+    <state width="382" height="591" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1609489488668" />
+    <state width="382" height="591" key="GridCell.Tab.0.left" timestamp="1609489488668">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="903" height="258" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1606959487923" />
-    <state width="903" height="258" key="GridCell.Tab.0.right" timestamp="1606959487924">
+    <state width="382" height="591" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1609489488668" />
+    <state width="382" height="591" key="GridCell.Tab.0.right" timestamp="1609489488668">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="903" height="258" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1606959487924" />
-    <state width="903" height="258" key="GridCell.Tab.1.bottom" timestamp="1606959487924">
+    <state width="382" height="591" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1609489488668" />
+    <state width="382" height="591" key="GridCell.Tab.1.bottom" timestamp="1609489488668">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="903" height="258" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1606959487924" />
-    <state width="903" height="258" key="GridCell.Tab.1.center" timestamp="1606959487924">
+    <state width="382" height="591" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1609489488668" />
+    <state width="382" height="591" key="GridCell.Tab.1.center" timestamp="1609489488668">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="903" height="258" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1606959487924" />
-    <state width="903" height="258" key="GridCell.Tab.1.left" timestamp="1606959487924">
+    <state width="382" height="591" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1609489488668" />
+    <state width="382" height="591" key="GridCell.Tab.1.left" timestamp="1609489488668">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="903" height="258" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1606959487924" />
-    <state width="903" height="258" key="GridCell.Tab.1.right" timestamp="1606959487924">
+    <state width="382" height="591" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1609489488668" />
+    <state width="382" height="591" key="GridCell.Tab.1.right" timestamp="1609489488668">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="903" height="258" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1606959487924" />
+    <state width="382" height="591" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1609489488668" />
     <state x="498" y="0" key="SettingsEditor" timestamp="1608642685362">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -389,10 +428,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="885" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1608557290332" />
-    <state x="-7" y="0" width="838" height="632" key="dock-window-1" timestamp="1607392185853">
+    <state x="586" y="153" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1608983644128">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="-7" y="0" width="838" height="632" key="dock-window-1/0.0.1536.824@0.0.1536.824" timestamp="1607392185853" />
+    <state x="586" y="153" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1536.824@0.0.1536.824" timestamp="1608983644128" />
+    <state x="-2" y="21" width="350" height="631" key="dock-window-1" timestamp="1609489648245">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="-2" y="21" width="350" height="631" key="dock-window-1/0.0.1536.824@0.0.1536.824" timestamp="1609489648245" />
     <state x="865" y="350" key="extract.method.dialog" timestamp="1608649980014">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -413,20 +456,40 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="342" y="386" key="scopes/0.0.1536.824@0.0.1536.824" timestamp="1608359783123" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1608388624689">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1609472115107">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1608388624689" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1609472115107" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/miniplc0java/tokenizer/Temp_test.java</url>
-          <line>10</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/src/main/java/miniplc0java/analyser/Analyser.java</url>
+          <line>176</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/miniplc0java/analyser/Analyser.java</url>
+          <line>322</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/miniplc0java/analyser/Analyser.java</url>
+          <line>153</line>
+          <option name="timeStamp" value="40" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="miniplc0java.instruction.Function" memberName="Body" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="Remote">
+        <watch expression="nowFunc.funcSymbolStack" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

@@ -25,16 +25,6 @@ d
 4src/main/java/miniplc0java/tokenizer/StringIter.java,0\e\0ec88ecd8bf06163956b2a3057343d1baf55a753
 Z
 *src/test/java/miniplc0java/MiniVmTest.java,0\4\042b0310dffaf0ac227e1dc009c7381fbad87f2a
-3
-1.c,7\3\735fd562fa6ffd8469f1f7ad1964ae17729e7aa5
-3
-2.c,b\d\bd34133d6d7f785c7cb80e87fc511257a173dae8
-3
-3.c,4\4\446270f14be36c63796971ecd445afb85bdb019c
-3
-4.c,f\7\f76cd5f641ee4b753e73ffb1c77371fd2478f4f2
-3
-5.c,6\c\6cfe69d7cd91ba3e15d2f73a148ca4fb06ab3769
 g
 7src/main/java/miniplc0java/instruction/Instruction.java,c\1\c17d1e1445b07c6233c6e41a19e76fc93180c584
 d
@@ -50,3 +40,5 @@ d
 4src/main/java/miniplc0java/analyser/TableOffset.java,e\3\e3d9a9cea37136e76afb5cfb5197b244cf3b2a13
 Y
 )src/main/java/miniplc0java/vm/MiniVm.java,b\7\b75567bf6223a2051fb74d0b71bea18fcecbab46
+[
++src/main/java/miniplc0java/miniplc0java.iml,5\8\58cde54ba152438b20b2afa685f9c413eb212e33

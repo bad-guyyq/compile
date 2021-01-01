@@ -1,6 +1,6 @@
 
-P
-java:S1128".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8ˆ·Ý¦è.
-r	java:S116"QRename this field "Offset" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³ ø¨øÿÿÿÿ8ˆ·Ý¦è.
 o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ø·Øæ
 o	java:S116"SRename this field "ActScope" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ß„àÍ8¶óÌ¦è.
+r	java:S116"QRename this field "Offset" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³ ø¨øÿÿÿÿ8ˆ·Ý¦è.
+P
+java:S1128".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8ˆ·Ý¦è.

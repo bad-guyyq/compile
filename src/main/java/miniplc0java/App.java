@@ -74,59 +74,70 @@ public class App {
         scanner = new Scanner(input);
         var iter = new StringIter(scanner);
         var tokenizer = tokenize(iter);
-        //词法分析
-        if (result.getBoolean("tokenize")) {
-            // tokenize
-            var tokens = new ArrayList<Token>();
-            try {
-                while (true) {
-                    var token = tokenizer.nextToken();
-                    if (token.getTokenType().equals(TokenType.EOF)) {
-                        break;
-                    }
-                    tokens.add(token);
-                }
-            } catch (Exception e) {
-                // 遇到错误不输出，直接退出
-                System.err.println(e);
-                System.exit(0);
-                return;
-            }//输出每个token
-            for (Token token : tokens) {
-                output.println(token.toString());
-            }
-        //语法分析
-        } else if (result.getBoolean("analyse")) {
-            // analyze
-            Analyser analyzer = new Analyser(tokenizer);
-            List<Function> func;
-            try {
-                func = analyzer.analyse();
-            } catch (Exception e) {
-                // 遇到错误输出，直接退出
-                System.err.println(e);
-                System.exit(0);
-                return;
-            }
-            //输出每个Instruction的tostring
-            output.println(analyzer.toAnalyserString());
-        } else if(result.getBoolean("binary")){
-            Analyser analyzer = new Analyser(tokenizer);
-            List<Function> func;
-            try {
-                func = analyzer.analyse();
-            } catch (Exception e) {
-                // 遇到错误输出，直接退出
-                System.err.println(e);
-                System.exit(0);
-                return;
-            }
-            //输出
-            analyzer.toO0(output);
-        } else{
-            System.err.println("Please specify either '--analyse' or '--tokenize'.");
-            System.exit(3);
+        Analyser analyzer = new Analyser(tokenizer);
+        try {
+            analyzer.analyse();
+        } catch (Exception e) {
+            // 遇到错误输出，直接退出
+            System.err.println(e);
+            System.exit(0);
+            return;
         }
+        //输出
+        analyzer.toO0(output);
+        //词法分析
+//        if (result.getBoolean("tokenize")) {
+//            // tokenize
+//            var tokens = new ArrayList<Token>();
+//            try {
+//                while (true) {
+//                    var token = tokenizer.nextToken();
+//                    if (token.getTokenType().equals(TokenType.EOF)) {
+//                        break;
+//                    }
+//                    tokens.add(token);
+//                }
+//            } catch (Exception e) {
+//                // 遇到错误不输出，直接退出
+//                System.err.println(e);
+//                System.exit(0);
+//                return;
+//            }//输出每个token
+//            for (Token token : tokens) {
+//                output.println(token.toString());
+//            }
+//        //语法分析
+//        } else if (result.getBoolean("analyse")) {
+//            // analyze
+//            Analyser analyzer = new Analyser(tokenizer);
+//            List<Function> func;
+//            try {
+//                func = analyzer.analyse();
+//            } catch (Exception e) {
+//                // 遇到错误输出，直接退出
+//                System.err.println(e);
+//                System.exit(0);
+//                return;
+//            }
+//            //输出每个Instruction的tostring
+//            output.println(analyzer.toAnalyserString());
+//        } else if(result.getBoolean("binary")){
+//            Analyser analyzer = new Analyser(tokenizer);
+//            List<Function> func;
+//            try {
+//                func = analyzer.analyse();
+//            } catch (Exception e) {
+//                // 遇到错误输出，直接退出
+//                System.err.println(e);
+//                System.exit(0);
+//                return;
+//            }
+//            //输出
+//            analyzer.toO0(output);
+//        } else{
+//            System.err.println("Please specify either '--analyse' or '--tokenize'.");
+//            System.exit(3);
+//        }
     }
 
     private static ArgumentParser buildArgparse() {
@@ -134,8 +145,7 @@ public class App {
         var parser = builder.build();
         parser.addArgument("-t", "--tokenize").help("Tokenize the input").action(Arguments.storeTrue());
         parser.addArgument("-l", "--analyse").help("Analyze the input").action(Arguments.storeTrue());
-        parser.addArgument("-o", "--output").help("Set the output file").required(true).dest("output")
-                .action(Arguments.store());
+        parser.addArgument("-o", "--output").help("Set the output file").required(true).dest("output").action(Arguments.store());
         parser.addArgument("file").required(true).dest("input").action(Arguments.store()).help("Input file");
         return parser;
     }

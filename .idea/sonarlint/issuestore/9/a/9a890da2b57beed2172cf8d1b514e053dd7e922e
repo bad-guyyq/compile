@@ -1,26 +1,33 @@
 
+f
+java:S2095@"IUse try-with-resources or close this "PrintStream" in a "finally" clause.(¦“8†…Αυι.
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(…ε¦ύ
+?
+java:S1128")Remove this unused import 'java.io.File'.(†Π¥Ε
+`
+java:S1128"JRemove this unused import 'net.sourceforge.argparse4j.inf.ArgumentAction'.(‹”µ›
+Z	java:S106k"9Replace this use of System.out or System.err by a logger.(ήΰ¬ψÿÿÿÿ8†…Αυι.
+Z
+java:S1854u"8Remove this useless assignment to local variable "func".(ΓΔασόÿÿÿÿ8‰τε³π.
+„
+java:S1488"aImmediately return this expression instead of assigning it to the temporary variable "tokenizer".(ΦΓύÿÿÿÿ8¤‚ζ³π.
+U	java:S1064"9Replace this use of System.out or System.err by a logger.(φ•Ν8†…Αυι.
+Z	java:S106="9Replace this use of System.out or System.err by a logger.(“£‹·ÿÿÿÿÿ8†…Αυι.
+L
+java:S5411c"*Use the primitive boolean expression here.(£­ΗΒϋÿÿÿÿ8†…Αυι.
+Z
+java:S1854h"8Remove this useless assignment to local variable "func".(ΓΔασόÿÿÿÿ8†…Αυι.
+Z	java:S106["9Replace this use of System.out or System.err by a logger.(ήΰ¬ψÿÿÿÿ8†…Αυι.
+Z	java:S106x"9Replace this use of System.out or System.err by a logger.(ήΰ¬ψÿÿÿÿ8‰τε³π.
+F
+java:S1481s")Remove this unused "func" local variable.(­„Κ8‰τε³π.
 T	java:S106B"9Replace this use of System.out or System.err by a logger.(°Ϊ:8†…Αυι.
 F
 java:S1481f")Remove this unused "func" local variable.(­„Κ8†…Αυι.
-f
-java:S2095@"IUse try-with-resources or close this "PrintStream" in a "finally" clause.(¦“8†…Αυι.
-Z	java:S106["9Replace this use of System.out or System.err by a logger.(ήΰ¬ψÿÿÿÿ8†…Αυι.
-}
-java:S1488ƒ"aImmediately return this expression instead of assigning it to the temporary variable "tokenizer".(ΦΓύÿÿÿÿ
-L
-java:S5411c"*Use the primitive boolean expression here.(£­ΗΒϋÿÿÿÿ8†…Αυι.
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(…ε¦ύ
-U	java:S1064"9Replace this use of System.out or System.err by a logger.(φ•Ν8†…Αυι.
-`
-java:S1128"JRemove this unused import 'net.sourceforge.argparse4j.inf.ArgumentAction'.(‹”µ›
-Z	java:S106="9Replace this use of System.out or System.err by a logger.(“£‹·ÿÿÿÿÿ8†…Αυι.
-t
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(™¤ÿÿÿÿÿ8†…Αυι.
 L
 java:S5411N"*Use the primitive boolean expression here.(ί‘–ωÿÿÿÿ8†…Αυι.
-Z	java:S106k"9Replace this use of System.out or System.err by a logger.(ήΰ¬ψÿÿÿÿ8†…Αυι.
-Z	java:S106r"9Replace this use of System.out or System.err by a logger.(ΠΦΣύÿÿÿÿ8†…Αυι.
-Z
-java:S1854h"8Remove this useless assignment to local variable "func".(ΓΔασόÿÿÿÿ8†…Αυι.
-?
-java:S1128")Remove this unused import 'java.io.File'.(†Π¥Ε
+L
+java:S5411q"*Use the primitive boolean expression here.(αΑΌΊϋÿÿÿÿ8‰τε³π.
+t
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(™¤ÿÿÿÿÿ8†…Αυι.
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(ΠΦΣύÿÿÿÿ8¤‚ζ³π.

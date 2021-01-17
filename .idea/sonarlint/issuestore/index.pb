@@ -42,3 +42,5 @@ Y
 )src/main/java/miniplc0java/vm/MiniVm.java,b\7\b75567bf6223a2051fb74d0b71bea18fcecbab46
 [
 +src/main/java/miniplc0java/miniplc0java.iml,5\8\58cde54ba152438b20b2afa685f9c413eb212e33
+b
+2src/main/java/miniplc0java/error/AnalyzeError.java,1\4\14ba8e6e610952904ce037d9d56e890c5d6abeeb

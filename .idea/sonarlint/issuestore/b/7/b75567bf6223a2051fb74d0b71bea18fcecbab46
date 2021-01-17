@@ -1,25 +1,25 @@
 
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(“à’«úÿÿÿÿ
-h
-java:S13013"KReplace this "switch" statement by "if" statements to increase readability.(ßÞ¿Ò8Èð•òé.
+]	java:S1254"<This block of commented-out lines of code should be removed.(žÀÍçÿÿÿÿÿ8Èð•òé.
+I
+java:S1068"'Remove this unused "out" private field.(Ñ…ˆ”þÿÿÿÿ8Èð•òé.
+Q
+java:S3740"/Provide the parametrized type for this generic.(Ñ¥žŠþÿÿÿÿ8Èð•òé.
 K
 java:S3740
 "/Provide the parametrized type for this generic.(šìŒ%8Èð•òé.
 Q
-java:S3740"/Provide the parametrized type for this generic.(Ñ¥žŠþÿÿÿÿ8Èð•òé.
-L
-java:S3740"/Provide the parametrized type for this generic.(äÿê„8Èð•òé.
-Q
 java:S37402"/Provide the parametrized type for this generic.(Ã§Å¨ÿÿÿÿÿ8Èð•òé.
-n
-java:S1450"QRemove the "ip" field and declare it as a local variable in the relevant methods.(¨ÆžŽ8Èð•òé.
-Z	java:S106"9Replace this use of System.out or System.err by a logger.(‰ïýþÿÿÿÿ8Èð•òé.
-o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙøÈÅúÿÿÿÿ8Èð•òé.
-o	java:S1002"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ã§Å¨ÿÿÿÿÿ8Èð•òé.
-]	java:S1254"<This block of commented-out lines of code should be removed.(žÀÍçÿÿÿÿÿ8Èð•òé.
-I
-java:S1068"'Remove this unused "out" private field.(Ñ…ˆ”þÿÿÿÿ8Èð•òé.
-E
-java:S1144("(Remove this unused private "pop" method.(ûÅÝ¯8Èð•òé.
 K
 java:S1144.")Remove this unused private "push" method.(—Ð¬³þÿÿÿÿ8Èð•òé.
+E
+java:S1144("(Remove this unused private "pop" method.(ûÅÝ¯8Èð•òé.
+h
+java:S13013"KReplace this "switch" statement by "if" statements to increase readability.(ßÞ¿Ò8Èð•òé.
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(‰ïýþÿÿÿÿ8Èð•òé.
+o	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙøÈÅúÿÿÿÿ8Èð•òé.
+n
+java:S1450"QRemove the "ip" field and declare it as a local variable in the relevant methods.(¨ÆžŽ8Èð•òé.
+L
+java:S3740"/Provide the parametrized type for this generic.(äÿê„8Èð•òé.
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(“à’«úÿÿÿÿ
+o	java:S1002"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ã§Å¨ÿÿÿÿÿ8Èð•òé.

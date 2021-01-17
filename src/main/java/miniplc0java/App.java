@@ -110,7 +110,20 @@ public class App {
             }
             //输出每个Instruction的tostring
             output.println(analyzer.toAnalyserString());
-        } else {
+        } else if(result.getBoolean("binary")){
+            Analyser analyzer = new Analyser(tokenizer);
+            List<Function> func;
+            try {
+                func = analyzer.analyse();
+            } catch (Exception e) {
+                // 遇到错误输出，直接退出
+                System.err.println(e);
+                System.exit(0);
+                return;
+            }
+            //输出
+            analyzer.toO0(output);
+        } else{
             System.err.println("Please specify either '--analyse' or '--tokenize'.");
             System.exit(3);
         }

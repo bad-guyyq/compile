@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
 public class AnalyserTest {
     public static void main(String[] args) throws CompileError {
         var inputFileName = "input.txt";
-        var outputFileName = "output_ll.txt";
+        var outputFileName = "output_llO0.txt";
         //设置输入
         InputStream input;
         try {
@@ -54,7 +54,7 @@ public class AnalyserTest {
         }
         //输出每个Instruction的tostring
         output.println(analyzer.toAnalyserString());
-
+        analyzer.toO0(output);
     }
 
     private static Tokenizer tokenize(StringIter iter) {

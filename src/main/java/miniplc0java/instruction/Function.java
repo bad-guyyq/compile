@@ -3,6 +3,7 @@ package miniplc0java.instruction;
 import miniplc0java.analyser.SymbolEntry;
 import miniplc0java.tokenizer.TokenType;
 
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -39,5 +40,16 @@ public class Function {
             output.append(String.format(it.next().toString()+"\n"));
         }
         return output.toString();
+    }
+    public void toO0(PrintStream outPrint){
+        byte[] tempByte=null;
+        for(Instruction it:Body){
+            outPrint.print("    ");
+            for (byte item : it.toO0()) {
+                outPrint.printf("%02x ",item);
+            }
+            outPrint.println();
+        }
+        return;
     }
 }

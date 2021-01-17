@@ -13,6 +13,7 @@ import miniplc0java.tokenizer.TokenType;
 import miniplc0java.tokenizer.Tokenizer;
 import miniplc0java.util.Pos;
 
+import java.io.PrintStream;
 import java.lang.reflect.Type;
 import java.util.*;
 
@@ -1132,12 +1133,105 @@ public final class Analyser {
 
         Iterator<Function> it = Func.iterator();
         Function funIter;
-       while(it.hasNext()){
+        while(it.hasNext()){
             funIter=it.next();
             output.append(String.format("fn [%d] %d %d -> %d {\n",foundGlobalByName(funIter.fucName),funIter.locSlots,funIter.paramSlots,funIter.retSlots));
             output.append(String.format(funIter.toString()));
             output.append("}\n");
         }
         return output.toString();
+    }
+    //O0输出
+    public void toO0(PrintStream outPrint){
+        //output.println
+        ArrayList<Byte> output=new ArrayList<>();
+        outPrint.printf("%02x %02x %02x %02x\n",0x72,0x30,0x3b,0x3e);
+        outPrint.printf("%02x %02x %02x %02x\n",0x00,0x00,0x00,0x01);
+
+//        output.add((byte) 0x72);output.add((byte) 0x30);output.add((byte) 0x3b);output.add((byte) 0x3e);//magic
+//        outPrint.println(output);
+//        output.clear();
+//        output.add((byte) 0x72);output.add((byte) 0x30);output.add((byte) 0x3b);output.add((byte) 0x3e);//magic
+//        outPrint.println(output);
+//        output.clear();
+
+        // globals.count
+
+        for(byte it:Instruction.intToByte4B(GlobalSymbol.size())){
+            outPrint.printf("%02x ",it);
+        }
+        outPrint.println();
+
+        for(int i=0;i<GlobalSymbol.size();i++){
+            String global=GlobalSymbol.get(i);
+            SymbolEntry globalSymbolByte=symbolGlobalTable.get(global);
+            //is_const
+            for(byte it:Instruction.intToByte1B(i)){
+                outPrint.printf("%02x ",it);
+            }
+            outPrint.println();
+
+            //为字符串
+            if(globalSymbolByte==null||globalSymbolByte.isFunction){
+                //value.count
+                for(byte it:Instruction.intToByte4B(global.length())){
+                    outPrint.printf("%02x ",it);
+                }
+                outPrint.println();
+                //value.items
+                for(int j=0;j<global.length();j++){
+                    outPrint.printf("%c ",global.charAt(j));
+                }
+                outPrint.println();
+            }else{
+                //value.count
+                for(byte it:Instruction.intToByte4B(8)){
+                    outPrint.printf("%02x ",it);
+                }
+                outPrint.println();
+                //value.items
+                for(int j=0;j<8;j++){
+                    outPrint.printf("%02x ",0x00);
+                }
+                outPrint.println();
+            }
+        }
+
+        // functions.count
+        for(byte it:Instruction.intToByte4B(Func.size())){
+            outPrint.printf("%02x ",it);
+        }
+        outPrint.println();
+
+        Iterator<Function> it = Func.iterator();
+        Function funIter;
+        while(it.hasNext()){
+            funIter=it.next();
+            // functions.name ret_slots param_slots loc_slots
+            for(byte item:Instruction.intToByte4B(foundGlobalByName(funIter.fucName))){
+                outPrint.printf("%02x ",item);
+            }
+            outPrint.println();
+            for(byte item:Instruction.intToByte4B(funIter.locSlots)){
+                outPrint.printf("%02x ",item);
+            }
+            outPrint.println();
+            for(byte item:Instruction.intToByte4B(funIter.paramSlots)){
+                outPrint.printf("%02x ",item);
+            }
+            outPrint.println();
+            for(byte item:Instruction.intToByte4B(funIter.retSlots)){
+                outPrint.printf("%02x ",item);
+            }
+            outPrint.println();
+
+            // functions.body.count
+            for(byte item:Instruction.intToByte4B(funIter.Body.size())){
+                outPrint.printf("%02x ",item);
+            }
+            outPrint.println();
+            funIter.toO0(outPrint);
+        }
+        return;
     }
 }

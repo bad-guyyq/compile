@@ -1,4 +1,14 @@
 
+D
+java:S1168ç"&Return an empty array instead of null.(¥¹ï8õƒ°¶ğ.
+V
+java:S2183ˆ"3Either make "n" a "long" or correct this shift to 8(‹„‡öøÿÿÿÿ8ªÍÊµğ.
+W
+java:S2183‡"4Either make "n" a "long" or correct this shift to 16(¢·á¥şÿÿÿÿ8ªÍÊµğ.
 o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(½
+<
+java:S2183‰"Remove this useless shift(×§Ù÷ùÿÿÿÿ8ßÔÉµğ.
 L
 java:S3740"/Provide the parametrized type for this generic.(Ñç·8‘×ñç.
+W
+java:S2183†"4Either make "n" a "long" or correct this shift to 24(àÖ„×şÿÿÿÿ8ÀãÊµğ.

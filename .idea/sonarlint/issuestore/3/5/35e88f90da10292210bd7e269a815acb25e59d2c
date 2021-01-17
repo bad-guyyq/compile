@@ -1,241 +1,270 @@
 
-R
-java:S3740¬"/Provide the parametrized type for this generic.(éÏ¥±úÿÿÿÿ8êºõé.
-M
-java:S3740º"/Provide the parametrized type for this generic.(ˆ¡§’8êºõé.
-c	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(ù¼ş8êºõé.
-h	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(°Ç¥ûüÿÿÿÿ8êºõé.
-^
-java:S1854Î"@Remove this useless assignment to local variable "stdlibSymbol".(Ü´ïÚ8êºõé.
-Y	java:S125µ"<This block of commented-out lines of code should be removed.(ÅÆĞÈ8¾—’öé.
-t
-java:S3457È"Q%n should be used in place of \n to produce the platform-specific line separator.(ÑĞ¶óşÿÿÿÿ8êºõé.
-b	java:S112f"FDefine and throw a dedicated exception instead of using a generic one.(ÓòÛ»8êºõé.
-M
-java:S3740î"/Provide the parametrized type for this generic.(áäÜ÷8êºõé.
-c	java:S112Ó"FDefine and throw a dedicated exception instead of using a generic one.(›ÚÀ8êºõé.
-U
-java:S1128"3Remove this unused import 'java.lang.reflect.Type'.(‰ûÕñıÿÿÿÿ8ó¬¸ùè.
-
-java:S13190"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Ÿœˆ©8êºõé.
-^	java:S125Æ"<This block of commented-out lines of code should be removed.(ç¹½öüÿÿÿÿ8êºõé.
-O
-java:S1481 ",Remove this unused "boolOff" local variable.(íƒ³ãşÿÿÿÿ8êºõé.
-k	java:S100Ë"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø¨ü©8êºõé.
-k	java:S100ö"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£ûıì8êºõé.
-p	java:S100Û"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡ƒ¤áüÿÿÿÿ8êºõé.
-X
-java:S1144ğ"5Remove this unused private "initializeSymbol" method.(»ÈîËøÿÿÿÿ8êºõé.
-R
-java:S3740ì"/Provide the parametrized type for this generic.(Í‘»¾ıÿÿÿÿ8êºõé.
-c	java:S112‹"FDefine and throw a dedicated exception instead of using a generic one.(ù¼ş8êºõé.
-h	java:S112ç"FDefine and throw a dedicated exception instead of using a generic one.(°Ç¥ûüÿÿÿÿ8êºõé.
-p
-java:S3776×"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(±êŸ¡8êºõé.
-M
-java:S1481˜"/Remove this unused "nameSymbol" local variable.(İœâÁ8êºõé.
-M
-java:S3740ì"/Provide the parametrized type for this generic.(ÙˆÏÖ8êºõé.
-p	java:S100Ú"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œ¦£üÿÿÿÿ8êºõé.
-k	java:S100‚"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è”½ä8êºõé.
-›
-java:S1130"xRemove the declaration of thrown exception 'miniplc0java.error.AnalyzeError', as it cannot be thrown from method's body.(–ÛŠ¸ûÿÿÿÿ8êºõé.
-M
-java:S3740"/Provide the parametrized type for this generic.(ääû€8êºõé.
-›
-java:S1130Õ"xRemove the declaration of thrown exception 'miniplc0java.error.CompileError', as it cannot be thrown from method's body.(£‹¢æşÿÿÿÿ8êºõé.
-R
-java:S3740É"/Provide the parametrized type for this generic.(Ú”¸ìøÿÿÿÿ8êºõé.
-R
-java:S3740ü"/Provide the parametrized type for this generic.(á²µØøÿÿÿÿ8êºõé.
-h	java:S112¼"FDefine and throw a dedicated exception instead of using a generic one.( ‡˜‹ûÿÿÿÿ8êºõé.
-^
-java:S1854 ";Remove this useless assignment to local variable "boolOff".(íƒ³ãşÿÿÿÿ8êºõé.
-M
-java:S3740¿"/Provide the parametrized type for this generic.(†ÌÈÅ8êºõé.
-f
-java:S1192Ó"HDefine a constant instead of duplicating this literal "*/error" 3 times.(›ÚÀ8êºõé.
-k	java:S100é"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÒŞÄ¸8êºõé.
-›
-java:S1130š"xRemove the declaration of thrown exception 'miniplc0java.error.AnalyzeError', as it cannot be thrown from method's body.(®Ïÿ—ıÿÿÿÿ8êºõé.
-M
-java:S3740ø"/Provide the parametrized type for this generic.(Âªš 8êºõé.
-Y	java:S125"<This block of commented-out lines of code should be removed.(úÆ³ã8êºõé.
-R
-java:S1144á"/Remove this unused private "isConstant" method.(Îîš¸úÿÿÿÿ8êºõé.
-R
-java:S3740Ğ"/Provide the parametrized type for this generic.(ÏÜÑ×úÿÿÿÿ8êºõé.
-R
-java:S3740Ë"/Provide the parametrized type for this generic.(åîƒ®ûÿÿÿÿ8êºõé.
-s	java:S116"WRename this field "GlobalSymbol" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïãÆü8êºõé.
+k	java:S100ç"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹ıšî8êºõé.
+h	java:S112½"FDefine and throw a dedicated exception instead of using a generic one.( ‡˜‹ûÿÿÿÿ8êºõé.
 ?
-java:S1116‚"Remove this empty statement.(ôŸìúÿÿÿÿ8êºõé.
-p	java:S100Õ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£‹¢æşÿÿÿÿ8êºõé.
+java:S1116ş"Remove this empty statement.(Åñ­õşÿÿÿÿ8ÚáÊäë.
+J
+java:S1481è",Remove this unused "retType" local variable.(©è8®šùàë.
+h	java:S112Õ"FDefine and throw a dedicated exception instead of using a generic one.(å‚Ş¦øÿÿÿÿ8êºõé.
 M
-java:S3740‘"/Provide the parametrized type for this generic.(»Ğÿ…8êºõé.
-9
-java:S3626Ö"Remove this redundant jump.(ûÁİ…8êºõé.
-k	java:S100Â"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(şİÆ¿8êºõé.
-‚
-java:S1149Á"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(Ò¨ïıÿÿÿÿ8êºõé.
-a
-java:S1854ô">Remove this useless assignment to local variable "funcSymbol".(Úƒ¿÷ùÿÿÿÿ8êºõé.
-c	java:S112œ"FDefine and throw a dedicated exception instead of using a generic one.(›ÚÀ8êºõé.
-c	java:S112‡"FDefine and throw a dedicated exception instead of using a generic one.(ù¼ş8êºõé.
-p	java:S100¡"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ì±Ûôıÿÿÿÿ8êºõé.
-R
-java:S3740´"/Provide the parametrized type for this generic.(åİê–øÿÿÿÿ8êºõé.
-Y	java:S125Ş"<This block of commented-out lines of code should be removed.(ÿ’Â·8êºõé.
-h	java:S112Î"FDefine and throw a dedicated exception instead of using a generic one.(å‚Ş¦øÿÿÿÿ8êºõé.
-M
-java:S3740ò"/Provide the parametrized type for this generic.(àÄ˜Ò8êºõé.
-h
-java:S1192"JDefine a constant instead of duplicating this literal "TypeWrong" 4 times.(ù¼ş8êºõé.
-L
-java:S3740À"/Provide the parametrized type for this generic.(‘ìó78êºõé.
-R
-java:S3740Ë"/Provide the parametrized type for this generic.(şÔ–ƒşÿÿÿÿ8êºõé.
-i
-java:S1192;"GDefine a constant instead of duplicating this literal "_start" 5 times.(ğïØ¸øÿÿÿÿ8êºõé.
-?
-java:S1116Œ"Remove this empty statement.(‹÷‚‡øÿÿÿÿ8êºõé.
-Y	java:S125¦"<This block of commented-out lines of code should be removed.(¤ë»½8êºõé.
-c	java:S112ç"FDefine and throw a dedicated exception instead of using a generic one.(ù¼ş8êºõé.
-R
-java:S3740“"/Provide the parametrized type for this generic.(ÛÎçÃùÿÿÿÿ8êºõé.
-c	java:S112á"FDefine and throw a dedicated exception instead of using a generic one.(Å‰ô8êºõé.
-R
-java:S3740ú"/Provide the parametrized type for this generic.(Ú¸âûÿÿÿÿ8êºõé.
-h	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Ó”äøÿÿÿÿ8êºõé.
-¨
-java:S1862Ê"„This branch can not be reached because the condition duplicates a previous condition in the same sequence of "if/else if" statements(éÑ üûÿÿÿÿ8êºõé.
-M
-java:S3740"/Provide the parametrized type for this generic.(àÄ˜Ò8êºõé.
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ø·Øæ
-k	java:S100¶"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦¢•¡8êºõé.
-M
-java:S3740Ò"/Provide the parametrized type for this generic.( ¸ñ8êºõé.
-R
-java:S3740š"/Provide the parametrized type for this generic.(®Ïÿ—ıÿÿÿÿ8êºõé.
-k	java:S100™"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ıñíÏ8êºõé.
-t
-java:S3457Ï"Q%n should be used in place of \n to produce the platform-specific line separator.(ûñÀƒşÿÿÿÿ8´öé.
-O
-java:S1481Î"1Remove this unused "stdlibSymbol" local variable.(Ü´ïÚ8êºõé.
-j	java:S100Â"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—èñ
-8êºõé.
-k	java:S100™"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ÅŠé8êºõé.
-M
-java:S3740Î"/Provide the parametrized type for this generic.(³ÿô¤8êºõé.
-R
-java:S3740Ó"/Provide the parametrized type for this generic.(…±Ã¨şÿÿÿÿ8êºõé.
-k	java:S100Ø"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ä®ÿİ8êºõé.
-X	java:S125^"<This block of commented-out lines of code should be removed.(æıéÑ8êºõé.
-Y	java:S125¾"<This block of commented-out lines of code should be removed.(¤ë»½8êºõé.
-p	java:S100¦"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŸÒ÷¶üÿÿÿÿ8êºõé.
-s	java:S117å"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Áá¸ ùÿÿÿÿ8êºõé.
-k	java:S100ı"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„òŞ8êºõé.
-s	java:S117ƒ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üĞ®æûÿÿÿÿ8êºõé.
-R
-java:S3740‹"/Provide the parametrized type for this generic.(«§ş‰şÿÿÿÿ8êºõé.
-c	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Å‰ô8êºõé.
-M
-java:S3740ş"/Provide the parametrized type for this generic.(ÔªÈ8êºõé.
-R
-java:S3740½"/Provide the parametrized type for this generic.(êÒêşÿÿÿÿ8êºõé.
-^	java:S125’"<This block of commented-out lines of code should be removed.(Ì¬çÿÿÿÿÿ8êºõé.
-M
-java:S3740•"/Provide the parametrized type for this generic.(àÄ˜Ò8êºõé.
-p	java:S100Ú"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ØºÚ øÿÿÿÿ8êºõé.
-R
-java:S3740‘"/Provide the parametrized type for this generic.(Ú¸âûÿÿÿÿ8êºõé.
-M
-java:S3740™"/Provide the parametrized type for this generic.(â—ë8êºõé.
-R
-java:S3740Ï"/Provide the parametrized type for this generic.(Õİ›òúÿÿÿÿ8êºõé.
-R
-java:S3740Å"/Provide the parametrized type for this generic.(ö™£Øùÿÿÿÿ8êºõé.
-k	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…È¹Ñ8êºõé.
-k	java:S100à"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚óÍ„8êºõé.
-M
-java:S3740Â"/Provide the parametrized type for this generic.(Õ»œø8êºõé.
-a
-java:S1155…">Use isEmpty() to check whether the collection is empty or not.(œÓÜÓıÿÿÿÿ8êºõé.
-R
-java:S3740¼"/Provide the parametrized type for this generic.(ÇŠç‘ùÿÿÿÿ8êºõé.
-R
-java:S3740Ã"/Provide the parametrized type for this generic.(êÒêşÿÿÿÿ8êºõé.
-s	java:S117ÿ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ÂËúÿÿÿÿ8êºõé.
-R
-java:S3740Ø"/Provide the parametrized type for this generic.(ÊùÅğøÿÿÿÿ8êºõé.
-X	java:S1259"<This block of commented-out lines of code should be removed.(¤”ÚÏ8êºõé.
-R
-java:S3740®"/Provide the parametrized type for this generic.(İ½ïÌüÿÿÿÿ8êºõé.
-k	java:S100†"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±ºë8êºõé.
-N
-java:S1172¢"0Remove this unused method parameter "nameToken".(¯å»“8êºõé.
-M
-java:S3740Í"/Provide the parametrized type for this generic.(¨ğƒ8êºõé.
-p	java:S100©"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ï×—¾ùÿÿÿÿ8êºõé.
-h	java:S112Ë"FDefine and throw a dedicated exception instead of using a generic one.(¿Àƒÿÿÿÿÿ8êºõé.
-k	java:S100¢"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(şº…—8êºõé.
-|	java:S116&"`Rename this field "now_block_symbolTable" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÈŸë8êºõé.
-c	java:S112÷"FDefine and throw a dedicated exception instead of using a generic one.(›ÚÀ8êºõé.
-?
-java:S1116ˆ"Remove this empty statement.(ôŸìúÿÿÿÿ8êºõé.
-^	java:S125ü"<This block of commented-out lines of code should be removed.(×Äõàùÿÿÿÿ8êºõé.
+java:S1481’"/Remove this unused "nameSymbol" local variable.(İœâÁ8êºõé.
+c	java:S112‚"FDefine and throw a dedicated exception instead of using a generic one.(ù¼ş8êºõé.
 •
-java:S1130Í"xRemove the declaration of thrown exception 'miniplc0java.error.AnalyzeError', as it cannot be thrown from method's body.(ùÕÄc8êºõé.
-k	java:S100Ğ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–¡Ã8êºõé.
-\
-java:S1854˜">Remove this useless assignment to local variable "nameSymbol".(İœâÁ8êºõé.
-?
-java:S1116Œ"Remove this empty statement.(ôŸìúÿÿÿÿ8êºõé.
-k	java:S100×"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±êŸ¡8êºõé.
-h	java:S112”"FDefine and throw a dedicated exception instead of using a generic one.(„ó‘îûÿÿÿÿ8êºõé.
+java:S1130ğ"xRemove the declaration of thrown exception 'miniplc0java.error.AnalyzeError', as it cannot be thrown from method's body.(ùÕÄc8 å©àë.
+t
+java:S3457ë"Q%n should be used in place of \n to produce the platform-specific line separator.(ÑĞ¶óşÿÿÿÿ8 å©àë.
+^	java:S125ô"<This block of commented-out lines of code should be removed.(×Äõàùÿÿÿÿ8êºõé.
+R
+java:S3740Ò"/Provide the parametrized type for this generic.(ÊùÅğøÿÿÿÿ8êºõé.
 M
-java:S3740Ñ"/Provide the parametrized type for this generic.(³ÿô¤8êºõé.
+java:S3740ƒ"/Provide the parametrized type for this generic.(–»¤ˆ8ÌôŞäë.
+f
+java:S1192Ô"HDefine a constant instead of duplicating this literal "*/error" 3 times.(›ÚÀ8êºõé.
 M
-java:S3740¤"/Provide the parametrized type for this generic.(ˆ¡§’8êºõé.
-R
-java:S1481ô"/Remove this unused "funcSymbol" local variable.(Úƒ¿÷ùÿÿÿÿ8êºõé.
-R
-java:S3740ù"/Provide the parametrized type for this generic.(…±Ã¨şÿÿÿÿ8êºõé.
-h	java:S112ì"FDefine and throw a dedicated exception instead of using a generic one.(Ùší ùÿÿÿÿ8êºõé.
-j	java:S116"ORename this field "Func" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïÃæ	8êºõé.
-M
-java:S3740"/Provide the parametrized type for this generic.(Âªš 8êºõé.
-R
-java:S3740î"/Provide the parametrized type for this generic.(•ë·¸øÿÿÿÿ8êºõé.
-R
-java:S3740€"/Provide the parametrized type for this generic.(•±ÄÔùÿÿÿÿ8êºõé.
-L
-java:S3740À"/Provide the parametrized type for this generic.(¾÷Õ8êºõé.
-R
-java:S3740Ç"/Provide the parametrized type for this generic.(ö™£Øùÿÿÿÿ8êºõé.
-k	java:S100 "NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğƒú”8êºõé.
+java:S3740œ"/Provide the parametrized type for this generic.(àÄ˜Ò8êºõé.
 ›
-java:S1130¡"xRemove the declaration of thrown exception 'miniplc0java.error.CompileError', as it cannot be thrown from method's body.(Ì±Ûôıÿÿÿÿ8êºõé.
+java:S1130½"xRemove the declaration of thrown exception 'miniplc0java.error.AnalyzeError', as it cannot be thrown from method's body.(®Ïÿ—ıÿÿÿÿ8 å©àë.
+M
+java:S3740Á"/Provide the parametrized type for this generic.(ˆ¡§’8êºõé.
+M
+java:S3740Ã"/Provide the parametrized type for this generic.(Õ»œø8êºõé.
 R
-java:S3740“"/Provide the parametrized type for this generic.(á²µØøÿÿÿÿ8êºõé.
+java:S3740»"/Provide the parametrized type for this generic.(åİê–øÿÿÿÿ8êºõé.
+k	java:S100É"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(şİÆ¿8êºõé.
 R
-java:S3740Ğ"/Provide the parametrized type for this generic.(ùÛ¤äùÿÿÿÿ8êºõé.
+java:S3740ò"/Provide the parametrized type for this generic.(Õİ›òúÿÿÿÿ8 å©àë.
+h	java:S112î"FDefine and throw a dedicated exception instead of using a generic one.(¿Àƒÿÿÿÿÿ8 å©àë.
+O
+java:S1481È"1Remove this unused "stdlibSymbol" local variable.(Ü´ïÚ8êºõé.
+k	java:S100ß"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ä®ÿİ8êºõé.
+^
+java:S1854È"@Remove this useless assignment to local variable "stdlibSymbol".(Ü´ïÚ8êºõé.
+c	java:S112è"FDefine and throw a dedicated exception instead of using a generic one.(ù¼ş8êºõé.
+c	java:S112¬"FDefine and throw a dedicated exception instead of using a generic one.(›ÚÀ8êºõé.
+^	java:S125í"<This block of commented-out lines of code should be removed.(Õ»úûÿÿÿÿ8 å©àë.
+?
+java:S1116¯"Remove this empty statement.(ôŸìúÿÿÿÿ8 å©àë.
 R
-java:S3740¦"/Provide the parametrized type for this generic.(ÇŠç‘ùÿÿÿÿ8êºõé.
+java:S1144„"/Remove this unused private "isConstant" method.(Îîš¸úÿÿÿÿ8 å©àë.
+X
+java:S1144“"5Remove this unused private "initializeSymbol" method.(»ÈîËøÿÿÿÿ8 å©àë.
+M
+java:S3740Æ"/Provide the parametrized type for this generic.(†ÌÈÅ8êºõé.
 R
-java:S3740Ó"/Provide the parametrized type for this generic.(ª©ûÖøÿÿÿÿ8êºõé.
-j	java:S100´"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ç®òl8êºõé.
-h	java:S112È"FDefine and throw a dedicated exception instead of using a generic one.(Á”øÿÿÿÿ8êºõé.
-k	java:S100¢"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯å»“8êºõé.
-^	java:S125Ê"<This block of commented-out lines of code should be removed.(Õ»úûÿÿÿÿ8êºõé.
-p	java:S100“"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬çöùşÿÿÿÿ8êºõé.
+java:S3740Ê"/Provide the parametrized type for this generic.(Ú”¸ìøÿÿÿÿ8êºõé.
+R
+java:S3740Í"/Provide the parametrized type for this generic.(…±Ã¨şÿÿÿÿ8êºõé.
+h	java:S112è"FDefine and throw a dedicated exception instead of using a generic one.(°Ç¥ûüÿÿÿÿ8êºõé.
+j	java:S100Ã"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—èñ
+8êºõé.
+h	java:S112Ù"FDefine and throw a dedicated exception instead of using a generic one.(Ùší ùÿÿÿÿ8“Å™àë.
+Y	java:S125˜"<This block of commented-out lines of code should be removed.(úÆ³ã8êºõé.
+R
+java:S3740í"/Provide the parametrized type for this generic.(Í‘»¾ıÿÿÿÿ8êºõé.
+R
+java:S3740£"/Provide the parametrized type for this generic.(ÛÎçÃùÿÿÿÿ8êºõé.
+c	java:S112ø"FDefine and throw a dedicated exception instead of using a generic one.(›ÚÀ8êºõé.
+
+java:S13191"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Ÿœˆ©8êºõé.
+^	java:S125Í"<This block of commented-out lines of code should be removed.(ç¹½öüÿÿÿÿ8êºõé.
+R
+java:S3740ï"/Provide the parametrized type for this generic.(•ë·¸øÿÿÿÿ8êºõé.
+p	java:S100ı"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ØºÚ øÿÿÿÿ8 å©àë.
+b	java:S112g"FDefine and throw a dedicated exception instead of using a generic one.(ÓòÛ»8êºõé.
+Y	java:S125É"<This block of commented-out lines of code should be removed.(¤ë»½8 å©àë.
+R
+java:S3740­"/Provide the parametrized type for this generic.(ÇŠç‘ùÿÿÿÿ8êºõé.
+R
+java:S3740µ"/Provide the parametrized type for this generic.(İ½ïÌüÿÿÿÿ8êºõé.
+M
+java:S3740í"/Provide the parametrized type for this generic.(ÙˆÏÖ8êºõé.
+Y	java:S125£"<This block of commented-out lines of code should be removed.(¨¶š°8››áë.
+Y	java:S125á"<This block of commented-out lines of code should be removed.(¤ë»½8 å©àë.
+h	java:S112Ï"FDefine and throw a dedicated exception instead of using a generic one.(Á”øÿÿÿÿ8êºõé.
+s	java:S117æ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Áá¸ ùÿÿÿÿ8êºõé.
+^	java:S125û"<This block of commented-out lines of code should be removed.(…òÊúÿÿÿÿ8®šùàë.
+M
+java:S3740õ"/Provide the parametrized type for this generic.( ¸ñ8 å©àë.
+^	java:S125™"<This block of commented-out lines of code should be removed.(Ì¬çÿÿÿÿÿ8êºõé.
 p
-java:S3776ı"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(„òŞ8êºõé.
-C
-java:S3457Ä"%String contains no format specifiers.(¾™õ8êºõé.
+java:S3776²"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(şº…—8»¦Ôßë.
+t
+java:S2159•"VRemove this call to "equals"; comparisons between unrelated types always return false.(Û­â8Øİ¥åë.
 M
-java:S3740ò"/Provide the parametrized type for this generic.(ë’òê8êºõé.
+java:S3740Ï"/Provide the parametrized type for this generic.(³ÿô¤8êºõé.
+M
+java:S3740¡"/Provide the parametrized type for this generic.(ÔªÈ8 å©àë.
 R
-java:S3740ô"/Provide the parametrized type for this generic.(Ù¨éñøÿÿÿÿ8êºõé.
+java:S3740´"/Provide the parametrized type for this generic.(Ú¸âûÿÿÿÿ8 å©àë.
+U
+java:S1128"3Remove this unused import 'java.lang.reflect.Type'.(‰ûÕñıÿÿÿÿ8ó¬¸ùè.
+k	java:S100Ñ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–¡Ã8êºõé.
+a
+java:S1854í">Remove this useless assignment to local variable "nameSymbol".(¹Ÿ¯Çşÿÿÿÿ8«÷Ôàë.
 M
-java:S3740—"/Provide the parametrized type for this generic.(À¿Ò8êºõé.
+java:S3740ö"/Provide the parametrized type for this generic.(àÄ˜Ò8êºõé.
+s	java:S117ƒ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ÂËúÿÿÿÿ8êºõé.
+^
+java:S1854ò";Remove this useless assignment to local variable "retType".(ª–²Öùÿÿÿÿ8®šùàë.
+p	java:S100â"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡ƒ¤áüÿÿÿÿ8êºõé.
+p	java:S100›"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ì±Ûôıÿÿÿÿ8êºõé.
+R
+java:S3740Ò"/Provide the parametrized type for this generic.(åîƒ®ûÿÿÿÿ8êºõé.
+k	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„òŞ8êºõé.
+›
+java:S1130Ü"xRemove the declaration of thrown exception 'miniplc0java.error.CompileError', as it cannot be thrown from method's body.(£‹¢æşÿÿÿÿ8êºõé.
+›
+java:S1130›"xRemove the declaration of thrown exception 'miniplc0java.error.CompileError', as it cannot be thrown from method's body.(Ì±Ûôıÿÿÿÿ8êºõé.
+a
+java:S1155†">Use isEmpty() to check whether the collection is empty or not.(œÓÜÓıÿÿÿÿ8êºõé.
+h	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(°Ç¥ûüÿÿÿÿ8êºõé.
+R
+java:S3740Æ"/Provide the parametrized type for this generic.(ö™£Øùÿÿÿÿ8êºõé.
+k	java:S100ƒ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(è”½ä8êºõé.
+b
+java:S2583Ø"DChange this condition so that it does not always evaluate to "false"(ª°Â8àÓ©àë.
+9
+java:S3626İ"Remove this redundant jump.(ûÁİ…8êºõé.
+k	java:S100²"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(şº…—8êºõé.
+R
+java:S3740Ì"/Provide the parametrized type for this generic.(şÔ–ƒşÿÿÿÿ8êºõé.
+M
+java:S3740§"/Provide the parametrized type for this generic.(À¿Ò8êºõé.
+p	java:S100”"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬çöùşÿÿÿÿ8êºõé.
+L
+java:S3740Ç"/Provide the parametrized type for this generic.(‘ìó78êºõé.
+R
+java:S3740×"/Provide the parametrized type for this generic.(ÏÜÑ×úÿÿÿÿ8êºõé.
+M
+java:S3740›"/Provide the parametrized type for this generic.(Âªš 8 å©àë.
+M
+java:S3740ï"/Provide the parametrized type for this generic.(áäÜ÷8êºõé.
+^
+java:S1854ø";Remove this useless assignment to local variable "retType".(ÿËµïûÿÿÿÿ8®šùàë.
+M
+java:S3740«"/Provide the parametrized type for this generic.(ˆ¡§’8êºõé.
+h	java:S112•"FDefine and throw a dedicated exception instead of using a generic one.(„ó‘îûÿÿÿÿ8êºõé.
+R
+java:S3740È"/Provide the parametrized type for this generic.(ö™£Øùÿÿÿÿ8êºõé.
+k	java:S100Ø"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±êŸ¡8êºõé.
+R
+java:S1481í"/Remove this unused "nameSymbol" local variable.(¹Ÿ¯Çşÿÿÿÿ8«÷Ôàë.
+k	java:S100ş"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±ºë8êºõé.
+R
+java:S3740ú"/Provide the parametrized type for this generic.(…±Ã¨şÿÿÿÿ8êºõé.
+X	java:S125:"<This block of commented-out lines of code should be removed.(¤”ÚÏ8êºõé.
+s	java:S117¦"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üĞ®æûÿÿÿÿ8 å©àë.
+M
+java:S3740©"/Provide the parametrized type for this generic.(â—ë8êºõé.
+h	java:S112…"FDefine and throw a dedicated exception instead of using a generic one.(õˆØ‡ÿÿÿÿÿ8–Ùáäë.
+R
+java:S3740¶"/Provide the parametrized type for this generic.(á²µØøÿÿÿÿ8 å©àë.
+j	java:S116"ORename this field "Func" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïÃæ	8êºõé.
+M
+java:S3740ó"/Provide the parametrized type for this generic.(ë’òê8êºõé.
+k	java:S100š"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ÅŠé8êºõé.
+¨
+java:S1862Ë"„This branch can not be reached because the condition duplicates a previous condition in the same sequence of "if/else if" statements(éÑ üûÿÿÿÿ8êºõé.
+i
+java:S1192<"GDefine a constant instead of duplicating this literal "_start" 5 times.(ğïØ¸øÿÿÿÿ8êºõé.
+k	java:S100ú"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£ûıì8êºõé.
+c	java:S112‹"FDefine and throw a dedicated exception instead of using a generic one.(ù¼ş8êºõé.
+R
+java:S3740"/Provide the parametrized type for this generic.(ªÆëºÿÿÿÿÿ8«ÁŞäë.
+k	java:S100¡"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğƒú”8êºõé.
+M
+java:S3740²"/Provide the parametrized type for this generic.(Âªš 8 å©àë.
+p	java:S100§"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŸÒ÷¶üÿÿÿÿ8êºõé.
+‚
+java:S1149ä"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(Ò¨ïıÿÿÿÿ8 å©àë.
+Y	java:S125¶"<This block of commented-out lines of code should be removed.(ÅÆĞÈ8¾—’öé.
+p
+java:S3776Ø"RRefactor this method to reduce its Cognitive Complexity from 29 to the 15 allowed.(±êŸ¡8êºõé.
+C
+java:S3457ç"%String contains no format specifiers.(¾™õ8 å©àë.
+?
+java:S1116Û"Remove this empty statement.(Åñ­õşÿÿÿÿ8ê”èë.
+h	java:S112ô"FDefine and throw a dedicated exception instead of using a generic one.(ƒİîñûÿÿÿÿ8ûÚ¤åë.
+?
+java:S1116ƒ"Remove this empty statement.(ôŸìúÿÿÿÿ8êºõé.
+p	java:S100å"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õë‹÷úÿÿÿÿ8êºõé.
+M
+java:S3740¡"/Provide the parametrized type for this generic.(»Ğÿ…8êºõé.
+‚
+java:S1149	"_Replace the synchronized class "StringBuffer" by an unsynchronized one such as "StringBuilder".(Ü“«ÿÿÿÿÿ8Á¹¹èğ.
+›
+java:S1130Á"xRemove the declaration of thrown exception 'miniplc0java.error.AnalyzeError', as it cannot be thrown from method's body.(–ÛŠ¸ûÿÿÿÿ8 å©àë.
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ø·Øæ
+p	java:S100Ô"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œ¦£üÿÿÿÿ8êºõé.
+?
+java:S1116Œ"Remove this empty statement.(ôŸìúÿÿÿÿ8êºõé.
+t
+java:S3457ò"Q%n should be used in place of \n to produce the platform-specific line separator.(ûñÀƒşÿÿÿÿ8 å©àë.
+h
+java:S1192‚"JDefine a constant instead of duplicating this literal "TypeWrong" 4 times.(ù¼ş8êºõé.
+R
+java:S3740Ñ"/Provide the parametrized type for this generic.(ùÛ¤äùÿÿÿÿ8êºõé.
+M
+java:S3740†"/Provide the parametrized type for this generic.(àÄ˜Ò8êºõé.
+h	java:S112–"FDefine and throw a dedicated exception instead of using a generic one.(ƒİîñûÿÿÿÿ8Øİ¥åë.
+X	java:S125_"<This block of commented-out lines of code should be removed.(æıéÑ8êºõé.
+R
+java:S3740Ú"/Provide the parametrized type for this generic.(ª©ûÖøÿÿÿÿ8êºõé.
+^
+java:S1854§";Remove this useless assignment to local variable "boolOff".(íƒ³ãşÿÿÿÿ8êºõé.
+|	java:S116'"`Rename this field "now_block_symbolTable" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÈŸë8êºõé.
+R
+java:S3740"/Provide the parametrized type for this generic.(•±ÄÔùÿÿÿÿ8êºõé.
+R
+java:S3740"/Provide the parametrized type for this generic.(Ú¸âûÿÿÿÿ8 å©àë.
+L
+java:S3740Á"/Provide the parametrized type for this generic.(¾÷Õ8êºõé.
+\
+java:S1854’">Remove this useless assignment to local variable "nameSymbol".(İœâÁ8êºõé.
+O
+java:S1481§",Remove this unused "boolOff" local variable.(íƒ³ãşÿÿÿÿ8êºõé.
+R
+java:S3740õ"/Provide the parametrized type for this generic.(Ù¨éñøÿÿÿÿ8êºõé.
+c	java:S112İ"FDefine and throw a dedicated exception instead of using a generic one.(Å‰ô8êºõé.
+p	java:S100Ü"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£‹¢æşÿÿÿÿ8êºõé.
+M
+java:S3740Ò"/Provide the parametrized type for this generic.(³ÿô¤8êºõé.
+p	java:S100ª"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ï×—¾ùÿÿÿÿ8êºõé.
+R
+java:S3740Ÿ"/Provide the parametrized type for this generic.(á²µØøÿÿÿÿ8 å©àë.
+R
+java:S3740æ"/Provide the parametrized type for this generic.(êÒêşÿÿÿÿ8 å©àë.
+R
+java:S3740à"/Provide the parametrized type for this generic.(êÒêşÿÿÿÿ8 å©àë.
+s	java:S116"WRename this field "GlobalSymbol" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïãÆü8êºõé.
+R
+java:S3740"/Provide the parametrized type for this generic.(«§ş‰şÿÿÿÿ8êºõé.
+h	java:S112Ğ"FDefine and throw a dedicated exception instead of using a generic one.(Ùší ùÿÿÿÿ8õ€£àë.
+a
+java:S1854õ">Remove this useless assignment to local variable "funcSymbol".(Úƒ¿÷ùÿÿÿÿ8êºõé.
+R
+java:S3740½"/Provide the parametrized type for this generic.(®Ïÿ—ıÿÿÿÿ8 å©àë.
+c	java:S112"FDefine and throw a dedicated exception instead of using a generic one.(Å‰ô8êºõé.
+R
+java:S3740Ã"/Provide the parametrized type for this generic.(ÇŠç‘ùÿÿÿÿ8êºõé.
+?
+java:S1116„"Remove this empty statement.(©Ç›Õşÿÿÿÿ8êºõé.
+k	java:S100Å"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ø¨ü©8êºõé.
+j	java:S100µ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ç®òl8êºõé.
+c	java:S112®"FDefine and throw a dedicated exception instead of using a generic one.(ù¼ş8 å©àë.
+k	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…È¹Ñ8êºõé.
+M
+java:S3740Î"/Provide the parametrized type for this generic.(¨ğƒ8êºõé.
+k	java:S100 "NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ıñíÏ8êºõé.
+h	java:S112ˆ"FDefine and throw a dedicated exception instead of using a generic one.(Ó”äøÿÿÿÿ8êºõé.
+k	java:S100½"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦¢•¡8êºõé.
+p
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(„òŞ8êºõé.
+Y	java:S125"<This block of commented-out lines of code should be removed.(ÿ’Â·8 å©àë.
+R
+java:S1481õ"/Remove this unused "funcSymbol" local variable.(Úƒ¿÷ùÿÿÿÿ8êºõé.
+M
+java:S3740‘"/Provide the parametrized type for this generic.(ääû€8êºõé.
+c	java:S112Ô"FDefine and throw a dedicated exception instead of using a generic one.(›ÚÀ8êºõé.
+R
+java:S3740³"/Provide the parametrized type for this generic.(éÏ¥±úÿÿÿÿ8êºõé.
